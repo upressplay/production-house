@@ -1,0 +1,43 @@
+{
+    "key": "group_5af75117517fc",
+    "title": "Social Menu Fields",
+    "fields": [
+        {
+            "key": "field_5af7512152d8b",
+            "label": "Icon Class",
+            "name": "icon_class",
+            "type": "text",
+            "instructions": "Add font awesome css values here. Find new ones here. https:\/\/fontawesome.com\/icons?d=gallery&m=free",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu_item",
+                "operator": "==",
+                "value": "3"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1537486624
+}
