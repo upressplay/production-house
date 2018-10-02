@@ -61,9 +61,9 @@ $cdn = "/";
 		</a>
 		<div id="navButtons">
 			<div id="navBtnHolder">
-				<?php wp_nav_menu( array( 'theme_location' => 'main-menu' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'top-menu' ) ); ?>
 			<?php
-				$menu_items = wp_get_nav_menu_items( 'Main Menu' );
+				$menu_items = wp_get_nav_menu_items( 'Top Menu' );
 				foreach ( (array) $menu_items as $key => $menu_item ) {
 				    $title = $menu_item->title;
 				    $url = $menu_item->url;
