@@ -2,40 +2,58 @@
  * Keyframe Animations
  */
 
-@keyframes show {
-    0% {
-        opacity: 0;
+@keyframes show
+{
+    0%
+    {
+        z-index: -2;
+
         visibility: hidden;
-        z-index:-2;
+
+        opacity: 0;
     }
-    1% {
-       z-index:3; 
+    1%
+    {
+        z-index: 3;
     }
-    100% {
-        opacity: 1;
+    100%
+    {
+        z-index: 3;
+
         visibility: visible;
-        z-index:3;
+
+        opacity: 1;
     }
 }
 
-@keyframes hide {
-    0% {
-        opacity: 1;
+@keyframes hide
+{
+    0%
+    {
+        z-index: 3;
+
         visibility: visible;
-        z-index:3;
+
+        opacity: 1;
     }
-    99% {
-        z-index:3;
+    99%
+    {
+        z-index: 3;
     }
-    100% {
-        opacity: 0;
+    100%
+    {
+        z-index: -2;
+
         visibility: hidden;
-        z-index:-2;
+
+        opacity: 0;
     }
 }
 
-@keyframes rotateClockwise {
-    100% {
+@keyframes rotateClockwise
+{
+    100%
+    {
         transform: rotate(360deg);
     }
 }

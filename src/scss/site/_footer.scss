@@ -1,74 +1,91 @@
-#footer {
-  font-family: 'Khula', sans-serif;
-  font-weight: 400;
-  width: 100vw;
-  color:#fff;
-  text-align: center;
-  background-color: #000;
-  padding: rem(20,$text-bp-sm) 0;
-  font-size: rem(18,$text-bp-sm);
+#footer
+{
+    font-family: 'Khula', sans-serif;
+    font-size: rem(18);
+    font-weight: 400;
 
-  @include bp-medium {
-    padding: rem(20,$text-bp-md) 0;
-    font-size: rem(12,$text-bp-md);
-  }
+    width: 100vw;
+    padding: rem(20) 0;
 
-  @include bp-large {
-    padding: rem(20,$text-bp-lg) 0; 
-    font-size: rem(12,$text-bp-lg);
-  }
+    text-align: center;
+
+    color: #fff;
+    background-color: #000;
+
+    @include bp-medium
+    {
+        font-size: rem(12);
+
+        padding: rem(20) 0;
+    }
+    @include bp-large
+    {
+        font-size: rem(12);
+
+        padding: rem(20) 0;
+    }
 }
 
-#footer a:link {
-    color: #b6b6b6;
+#footer a:link
+{
     text-decoration: none;
 
-    @include bp-medium {
-      color: #b6b6b6;
-    }
+    color: #b6b6b6;
 
-    @include bp-large {
-      color: #b6b6b6;
+    @include bp-medium
+    {
+        color: #b6b6b6;
+    }
+    @include bp-large
+    {
+        color: #b6b6b6;
     }
 }
 
-#footer a:visited {
-    color: #b6b6b6;
+#footer a:visited
+{
     text-decoration: none;
 
-    @include bp-medium {
-      color: #b6b6b6;
-    }
+    color: #b6b6b6;
 
-    @include bp-large {
-      color: #b6b6b6;
+    @include bp-medium
+    {
+        color: #b6b6b6;
+    }
+    @include bp-large
+    {
+        color: #b6b6b6;
     }
 }
 
-#footer a:hover {
-    color: #FFF;
+#footer a:hover
+{
     text-decoration: underline;
 
-    @include bp-medium {
-      color: #FFF;
-    }
+    color: #fff;
 
-    @include bp-large {
-      color: #FFF;
+    @include bp-medium
+    {
+        color: #fff;
+    }
+    @include bp-large
+    {
+        color: #fff;
     }
 }
 
-#footer a:active {
-    color: #b6b6b6;
+#footer a:active
+{
     text-decoration: none;
 
-    @include bp-medium {
-      color: #b6b6b6;
-    }
+    color: #b6b6b6;
 
-    @include bp-large {
-      color: #b6b6b6;
+    @include bp-medium
+    {
+        color: #b6b6b6;
+    }
+    @include bp-large
+    {
+        color: #b6b6b6;
     }
 }
-
-

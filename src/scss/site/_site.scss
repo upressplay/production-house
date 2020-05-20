@@ -1,88 +1,112 @@
-body {
-   margin:0;
-   padding:0;
-   width:100vw;
-   height:100vh;
-   font-family: 'Domine', serif;
-   overflow-x:hidden;
-   color:#fff;
-   background-color: #000;
+body
+{
+    font-family: $body-font;
+
+    overflow-x: hidden;
+
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    color: #fff;
+    background-color: #000;
 }
-html {
-  margin-top: 0 !important;
-}
-
-#site {
-   position: relative;
-   width:100vw;
-   height:100vh;
-
-   @include bp-medium {
-   }
-
-
-   @include bp-large {
-   }
-
-
+html
+{
+    margin-top: 0 !important;
 }
 
-#siteHolder {
-    width:100vw;
-    min-height:100vh;
-    overflow-x:hidden;
-    overflow-y:auto;
+#site
+{
+    position: relative;
 
-    @include bp-medium {
+    width: 100vw;
+    height: 100vh;
+
+    @include bp-medium
+    {
     }
-    @include bp-large {
+    @include bp-large
+    {
     }
 }
 
-img {
-  width:100%;
-  height:auto;
+#siteHolder
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    @include bp-medium
+    {
+    }
+    @include bp-large
+    {
+    }
 }
 
-h1, h2, h3 {
-    margin: 0 !important;
+img
+{
+    width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3
+{
     font-weight: normal;
+
+    margin: 0 !important;
 }
 
-p {
-    margin:rem(10,$text-bp-sm) 0;
+p
+{
+    margin: rem(10) 0;
 
-    @include bp-medium {
-        margin:rem(10,$text-bp-md) 0;
+    @include bp-medium
+    {
+        margin: rem(10) 0;
     }
-
-    @include bp-large {
-        margin:rem(20,$text-bp-lg) 0;
+    @include bp-large
+    {
+        margin: rem(20) 0;
     }
 }
-a:link {
-    color: #24293D;
+a:link
+{
     text-decoration: none;
+
+    color: #24293d;
 }
 
-a:visited {
-    color: #24293D;
+a:visited
+{
     text-decoration: none;
+
+    color: #24293d;
 }
 
-a:hover {
-    color: #3A3F5D;
+a:hover
+{
     text-decoration: none;
+
+    color: #3a3f5d;
 }
 
-a:active {
-    color: #24293D;
+a:active
+{
     text-decoration: none;
-}
 
-.screen-reader-text { /* Reusable, toolbox kind of class */
+    color: #24293d;
+}
+.screen-reader-text
+{
+    /* Reusable, toolbox kind of class */
     position: absolute;
     top: -9999px;
     left: -9999px;
 }
-
