@@ -26,6 +26,7 @@ $cdn = "/";
 		<script src="<?php echo get_template_directory_uri(); ?>/js/main.min.js"></script>
 		<link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 		<?php wp_head(); ?>
 		<!-- theme style settings -->
 		<style>
@@ -55,7 +56,7 @@ $cdn = "/";
 
 			?>
 			<div id="navLogo">	
-				<img src="<?php echo $nav_logo; ?>" alt="Laughing House Prodcutions Logo"/>
+				<img src="<?php echo $nav_logo; ?>" alt="Matt Brookens Logo"/>
 			</div>	
 		</a>
 		<nav id="navButtons">
@@ -93,7 +94,7 @@ $cdn = "/";
 			?>
 			</div>
 		</nav>
-		
+
 		<div id="navMenuBtn" class="fa fa-bars" ></div>
       	<div id="navMenuCloseBtn" class="fa fa-times" ></div>
 	</header>

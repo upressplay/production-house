@@ -73,6 +73,7 @@
 
 .pagePoster
 {
+    display: block;
     width: rem(200);
     margin: rem(30) rem(30) rem(10) rem(30);
 
@@ -151,10 +152,11 @@
 .pageBody,
 .pageInfoBody
 {
-    font-size: rem(21);
-    line-height: rem(30);
+    font-size: rem(28);
+    line-height: rem(44);
 
-    padding: rem(30);
+    box-sizing: border-box;
+    padding: rem(50);
 
     color: #000;
     background-color: #fff;
@@ -171,7 +173,7 @@
         font-size: rem(24);
         line-height: rem(36);
 
-        padding: rem(40);
+        padding: rem(40) rem(150);
     }
 }
 
@@ -182,22 +184,43 @@
 
     color: #000;
     background-color: #fff;
+    figure {
+        figcaption {
+            font-family: $post-title-font;
+            text-align: center;
+
+            font-size: rem(28);
+            line-height: rem(44);
+
+            @include bp-medium
+            {
+                font-size: rem(21);
+                line-height: rem(30);
+
+            }
+            @include bp-large
+            {
+                font-size: rem(24);
+                line-height: rem(36);
+
+            }
+        }
+    }
 }
-
-
-
-
 
 .pageSecTitle
 {
+    box-sizing: border-box;
     font-family: $headline-font;
-    font-size: rem(60);
+    font-size: rem(80);
 
     width: 100%;
     padding: rem(20) 0;
 
     text-align: center;
     letter-spacing: rem(2);
+    color: $color-1;
+    transition: all .3s;
 
     @include bp-medium
     {
@@ -214,31 +237,47 @@
         padding: rem(20);
 
         letter-spacing: rem(2);
+        
+    }
+    
+}
+.pageSecTitleLink 
+{
+    .pageSecTitle
+    {
+        &:link,
+        &:visited,
+        &:active
+        {
+            color: $color-1;
+            background-color: $color-2;   
+        }
+        &:hover
+        {
+            color: $color-2;
+            background-color: $color-1;
+        }
+        &.rainbow
+        {
+
+            &:hover
+            {
+                color: $color-1;
+                background: linear-gradient(90deg,#f00, #ff9c00, #fff000,#0cff00,#0048ff,#6c00ff);
+                text-shadow: 1px 1px 4px $color-2;
+            }
+        }
     }
 }
-
-.pageSecTitleLink a
-{
-    display: block;
-
-    transition: all .3s;
-
-    color: #fff;
-    background-color: #000;
-}
-
-
-.pageSecTitleLink a:hover
-{
-    color: #000;
-    background-color: #fff;
-}
-
 .pageRow
 {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     background-color: #000;
+
+    justify-content: center;
 }
 .galleryImg
 {
@@ -286,8 +325,6 @@
 }
 .pageThumbVert
 {
-    display: inline-block;
-
     width: rem(750);
 
     text-align: center;
@@ -305,12 +342,7 @@
 
 .pageThumbHorz
 {
-    display: inline-block;
-
     width: rem(750);
-
-    text-align: center;
-    vertical-align: top;
 
     @include bp-medium
     {
@@ -432,8 +464,8 @@
 .pageThumbTitle
 {
     font-family: $post-title-font;
-    font-size: rem(36);
-    line-height: rem(40);
+    font-size: rem(48);
+    line-height: rem(60);
 
     padding: rem(30) rem(50);
 
@@ -442,15 +474,15 @@
 
     @include bp-medium
     {
-        font-size: rem(17);
-        line-height: rem(20);
+        font-size: rem(30);
+        line-height: rem(36);
 
         padding: rem(8) rem(16);
     }
     @include bp-large
     {
-        font-size: rem(24);
-        line-height: rem(28);
+        font-size: rem(30);
+        line-height: rem(36);
 
         padding: rem(10) rem(20);
     }
@@ -708,9 +740,9 @@
 
         margin: rem(25);
 
-        color: $color-2;
-
         transition: all .3s;
+
+        color: $color-2;
 
         @include bp-medium
         {
@@ -730,9 +762,10 @@
         }
     }
 }
-.pageInfo {
-    .social {
-
+.pageInfo
+{
+    .social
+    {
         background-color: transparent;
         .share-btn
         {
@@ -743,36 +776,41 @@
                 color: $color-accent;
             }
         }
-    }    
+    }
 }
-.postContent {
-    .social {
-        position:fixed;
-        top:rem(100);
-        right:rem(40);
+.postContent
+{
+    .social
+    {
+        position: fixed;
+        top: rem(100);
+        right: rem(40);
+
         flex-direction: column;
+
         background-color: transparent;
 
         @include bp-medium
         {
-            top:rem(100);
-            right:rem(42);
+            top: rem(100);
+            right: rem(42);
         }
         @include bp-large
         {
-            top:rem(100);
-            right:rem(42);
+            top: rem(100);
+            right: rem(42);
         }
         .share-btn
         {
-            color: $color-1;
-            opacity: 0.4;
-
             font-size: rem(40);
 
             margin: rem(2) 0;
 
             transition: all .3s;
+
+            opacity: .4;
+            color: $color-1;
+
             @include bp-medium
             {
                 font-size: rem(25);
@@ -790,40 +828,38 @@
                 opacity: .8;
             }
         }
-    }   
+    }
 }
 
 .page-nav
 {
     font-size: rem(100);
-    background-color: $color-1;
 
     display: flex;
     flex-direction: row;
 
-
     text-align: center;
+
+    background-color: $color-1;
 
     justify-content: center;
     @include bp-medium
     {
         font-size: rem(50);
 
-
         text-align: left;
     }
     @include bp-large
     {
         font-size: rem(50);
-
     }
     a
     {
         margin: rem(10);
 
-        color: $color-2;
-
         transition: all .3s;
+
+        color: $color-2;
 
         @include bp-medium
         {

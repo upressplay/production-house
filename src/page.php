@@ -8,98 +8,92 @@
 			the_post(); 
 
 			$output = ""; 
-			
-			if ( has_post_thumbnail() ) {
-				$output  .=  '<div class="headerImg" style="background-image:url('.  get_the_post_thumbnail_url($post->ID, "header") .')"></div>'; 
-			}
-			if(!is_front_page()){
-				$output  .=  '<h1 class="pageSecTitle"> '.get_the_title().' </h1>';	
-			}
 
 			$section_link = get_sub_field('section_page');
 			$page_poster = get_field('page_poster');
 			$content = get_the_content();
-			$output  .=  '<div class="pageHeader">'; 
+			$cats = get_categories();
 			
-		    if($page_poster != "" || have_rows('page_links') ) {
-		    	if(!empty_content($content)) {
-			    	$output  .=  '<div class="pageInfoBody">'; 
-			    	$output  .=  $content; 
-			    	$output  .=  '</div><!-- pageInfoBody -->';
-			    }
+			if ( has_post_thumbnail() ) : ?>
+				<div class="headerImg" style="background-image:url(<?php echo  get_the_post_thumbnail_url($post->ID, "header");?>)"></div> 
+			<?php endif; ?>
+			<?php if( !is_front_page() ) : ?>
+				<h1 class="pageSecTitle rainbow"> <?php echo get_the_title(); ?> </h1>	
+			<?php endif; ?>
 
-		    	$output  .=  '<div class="pageInfo">'; 
-		    	//print_r($page_poster);
-				if($page_poster != "") {
-					$output  .= '<a href="'.$page_poster['sizes']['large'].'" target="_blank">'; 
-					$output  .= '<div class="pagePoster">'; 
-					$output  .= '<img src="'.$page_poster['sizes']['medium'].'">';
-					$output  .= '</div>'; 
-					$output  .= '</a>'; 
+			
+			<div class="pageHeader">
+			
+		    <?php if($page_poster != "" || have_rows('page_links') ) :
+		    	if(!empty_content($content)) : ?>
+			    	<div class="pageInfoBody">
+			    		<?php echo $content; ?> 
+			    	</div><!-- pageInfoBody -->
+			<?php endif; ?>
 
-					
-				}
-				?>
+		    	<div class="pageInfo">
+				<?php if($page_poster != "") : ?>
+					<a href="<?php echo $page_poster['sizes']['large']; ?>" class="pagePoster" target="_blank"> 
+						<img src="<?php echo $page_poster['sizes']['medium'];?>">
+					</a>
+				<?php endif; ?>
 				
-				<?php
-				if( have_rows('page_links') ) {		
-					$output  .=  '<div class="pageLinks">';  
-			    	while( have_rows('page_links') ) {
+				<?php if( have_rows('page_links') ) :	?>	
+					<div class="pageLinks"> 
+						<?php while( have_rows('page_links') ) :
+							the_row(); ?>
+							<a href="<?php echo get_sub_field('page_link'); ?>" target="_blank" class="pageLink"> 
+							<?php echo get_sub_field('page_link_txt'); ?>
+							</a>
+						<?php endwhile; ?>
+			    	</div>
+				<?php endif; ?>
+				
+				<?php include('social.php'); ?>
+			    </div><!-- pageInfo -->
 
-			    		the_row(); 
-			    		$output  .=  '<a href="'.get_sub_field('page_link').'" target="_blank" class="pageLink">'; 
-						$output  .=  get_sub_field('page_link_txt');
-						$output  .=  '</a>'; 
-			    	}
-			    	$output  .=  '</div>'; 
-				}
-				$output .= '<div class="social">';
-				$output  .=  '<div class="page-social-btn share-btn" data-type="facebook" data-title="'. get_the_title($post->ID) .'" data-url="'. get_permalink($post->ID) .'" data-desc="'. strip_tags(get_the_content()) .'">';
-				$output  .=  '<span class="fab fa-facebook-square" aria-hidden="true" ></span>';
-				$output  .=  '<span class="screen-reader-text">Facebook</span>';
-				$output  .=  '</div>';
-				$output  .=  '<div class="page-social-btn share-btn" data-type="twitter" data-title="'. get_the_title($post->ID) .'" data-url="'. get_permalink($post->ID) .'" data-desc="'.strip_tags(get_the_content()) .'">';
-				$output  .=  '<span class="fab fa-twitter-square" aria-hidden="true" ></span>';
-				$output  .=  '<span class="screen-reader-text">Twitter</span>';
-				$output  .=  '</div>';
-				$output  .=  '</div><!-- social -->';
-			    $output  .=  '</div><!-- pageInfo -->';
-
-		    } else {
-		    	if(!empty_content($content)) {
-		    		$output  .=  '<div class="pageBody">'; 
-		    		$output  .=  $content; 
-		    		$output  .=  '</div><!-- pageBody -->';	
-		    	}
+				<?php else: ?>
+			    <?php if(!empty_content($content)) : ?>
+		    		<div class="pageBody"> 
+		    			<?php echo $content; ?> 
+		    		</div><!-- pageBody -->
+				<?php endif; ?>
 		    	
-		    }
+			<?php endif; ?>
 			 
 		   
-			$output  .=  '</div><!-- pageHeader -->'; 
+			</div><!-- pageHeader --> 
 
-			if( have_rows('page_gallery') ) {		 
-		    	while( have_rows('page_gallery') ) {
+			<?php 
+				if( is_page('resume')) : 
+					include('resume.php');
+				endif;
+			?>
+
+			<?php if( have_rows('page_gallery') ) :	?>	 
+		    	<?php while( have_rows('page_gallery') ) :
 
 		    		the_row(); 
 
 		       		$section_title = get_sub_field('section_title');
 		       		$section_link = get_sub_field('section_page');
-		       		if($section_title != "") {
+		       		if($section_title != "") : ?>
 
-						if($section_link != "") {
-							$output  .=  '<div class="pageSecTitleLink">';
-							$output  .=  '<a href="'.$section_link.'">'; 
-							$output  .=  '<h2 class="pageSecTitle">';
-							$output  .=  $section_title.' ';
-							$output  .=  '</h2>';
-							$output  .=  '</a></div>'; 
-						} else {
-							$output  .=  '<h2 class="pageSecTitle"> '.$section_title.' </h2>';
-						}
+						<?php if($section_link != "") : ?>
+							<div class="pageSecTitleLink">
+							<a href="<?php echo $section_link; ?>"> 
+							<h2 class="pageSecTitle rainbow">
+								<?php echo $section_title.' ';?>
+							</h2>
+							</a></div>
+						<?php else: ?>
+							<h2 class="pageSecTitle rainbow"> <?php echo $section_title;?> </h2>
+						<?php endif; ?>
 						
-			       	}
-					$output  .=  '<div class="pageRow">'; 
-		       		$thumb_style = get_sub_field('thumb_style'); 
+					<?php endif; ?>
+					<div class="pageRow"> 
+					<?php 
+					$thumb_style = get_sub_field('thumb_style'); 
 		       		$thumb_size = 'pageThumb'.$thumb_style['thumb_size'];
 		       		$show_img = false;
 		       		$show_title = false;
@@ -129,26 +123,27 @@
 
 							wp_reset_postdata();	
 						}
-					}
-					$output  .=  '</div>'; 
+					} ?>
+					</div> 
 
-				}
-			}
-			$output  .= '<div id="postOverlay"></div><!-- postOverlay -->';
-			$cats = get_categories();
+				<?php endwhile; ?>
+				<?php endif; ?>
+			<div id="postOverlay"></div><!-- postOverlay -->
+			<?php 
 
-			foreach ( $cats as $cat ) {
+			foreach ( $cats as $cat ) :
 
 				 $cat_name =$cat->name;
 
-				 if( is_page($cat_name)) {
+				if( is_page($cat_name)) :
 					global $post;
-					$args = array( 'category_name' => $cat_name,  'numberposts' => 100, );
-					$output  .=  '<div class="pageRow">'; 
+					$args = array( 'category_name' => $cat_name,  'numberposts' => 100, ); ?>
+					<div class="pageRow">
+					<?php
 					$category_posts = get_posts( $args );
 
 					$posts_count = count($category_posts);
-					foreach ( $category_posts as $post ) {
+					foreach ( $category_posts as $post ) :
 						setup_postdata( $post ); 
 						$show_link = true;
 						$show_img = true;
@@ -185,14 +180,14 @@
 
 						include( locate_template( 'post.php', false, false ) ); 	
 
-					}
-					$output  .=  '</div>'; 
-					wp_reset_postdata();
-				}
-			}
+					endforeach;
+					
+					wp_reset_postdata(); ?>
+					</div> 
+				<?php endif;
+			endforeach;
 		}
 	}
-	echo $output;
 
 	get_footer();
 ?>

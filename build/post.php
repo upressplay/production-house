@@ -23,68 +23,54 @@
 
 ?>
 
-<?php
+<?php if($show_link) : ?>
+	<a href="<?php echo $link; ?>" data-postid="<?php echo $post->ID; ?>" class="<?php echo $cat; ?> post" >	
+<?php endif; ?>
 
-if($show_link) {
-	$output  .= '<a href="'. $link .'" data-postid="'.$post->ID.'" class="'.$cat .' post" >';	
-}
+<div class="pageThumb<?php echo $thumb_layout;?>" >
+<?php if($show_img) : ?>
+	<div class="<?php echo $thumb_size;?>"><img src="<?php echo $thumb; ?>" alt="<?php echo $title;?>"/></div>	
+<?php endif; ?>
+<?php if($show_title || $show_date || $show_body || $show_summary) : ?>
+	<div class="pageThumbInfo">	
+	<?php if($show_title) : ?>
+		<h3 class="pageThumbTitle"><?php echo $title; ?>	
+	<?php endif; ?>
+	<?php if($show_date) : ?>
+		<div class="pageThumbDate"><?php echo $date;?></div>	
+	<?php endif; ?>
+	<?php if($show_title) : ?>
+		</h3><!-- pageThumbTitle -->	
+	<?php endif;?>
+	<?php if($show_body) : ?>
+		<div class="pageThumbBody"><?php echo $body; ?></div>	
+	<?php endif; ?>
+	<?php if($show_summary) : ?>
+		<div class="pageThumbBody"><?php echo $summary;?></div>
+	<?php endif; ?>
+	</div><!-- pageThumbInfo -->
+	<?php endif; ?>
 
-$output  .= '<div class="pageThumb'.$thumb_layout .'" >';
-if($show_img) {
-	$output  .= '<div class="'.$thumb_size.'"><img src="'. $thumb .'" alt="'.$title.'"/></div>';	
-}
-if($show_title || $show_date || $show_body || $show_summary) {
-	$output  .= '<div class="pageThumbInfo">';	
-	if($show_title) {
-		$output  .= '<h3 class="pageThumbTitle">'. $title;	
-	}
-	if($show_date) {
-		$output  .= '<div class="pageThumbDate">'. $date .'</div>';	
-	}
-	if($show_title) {
-		$output  .= '</h3><!-- pageThumbTitle -->';	
-	}
-	if($show_body) {
-		$output  .= '<div class="pageThumbBody">'. $body .'</div>';	
-	}
-	if($show_summary) {
-		$output  .= '<div class="pageThumbBody">'. $summary .'</div>';	
-	}
-	$output  .= '</div><!-- pageThumbInfo -->';
-}
+</div><!-- pageThumb -->
+<?php if($show_link) : ?>
+	</a>	
+<?php endif; ?>
 
-$output  .= '</div><!-- pageThumb -->';
-if($show_link) {
-	$output  .= '</a>';	
-}
+<div id="<?php echo $post->ID;?>" class="postContent" data-hires="<?php echo $img[0];?>'" data-hires-w="<?php echo $img[1];?>" data-hires-h="<?php echo $img[2]; ?>" data-vidid="<?php echo $vidid;?>" data-vimeoid="<?php echo $vimeoid; ?>" data-playlist="<?php echo $playlist;?>" data-cat="<?php echo $cat;?>">
+	<?php if($cat != "videos" && $cat != "gallery") :?>
+		<div class="pageSecTitle"><?php echo $title;?></div>
+		<div class="pageThumbDate"><?php echo $date;?></div>	
 
-$output  .= '<div id="'.$post->ID.'" class="postContent" data-hires="'.$img[0].'" data-hires-w="'.$img[1].'" data-hires-h="'.$img[2].'" data-vidid="'.$vidid.'" data-vimeoid="'.$vimeoid.'" data-playlist="'.$playlist.'" data-cat="'.$cat.'">';
-if($cat != "videos" && $cat != "gallery") {
-	$output  .=  '<div class="pageSecTitle"> '.$title.' </div>';
-	$output  .= '<div class="pageThumbDate">'. $date .'</div>';	
-
-	$output  .= '<div class="pageBody">'. $body .'</div>';
-}
-$output  .= '<div data-id="'.$post->ID.'" class="postClose fas fa-times-circle"></div>';
-
-$output  .= '<div class="social">';	
-	$output  .= '<div class="share-btn" data-type="facebook" data-title="'.$title.'" data-url="'.$link.'" data-desc="'. $summary .'">
-                      <span class="fab fa-facebook-square" aria-hidden="true" ></span>
-                      <span class="screen-reader-text">Facebook</span>
-                    </div>';
-    $output  .= '<div class="share-btn" data-type="twitter" data-title="'.$title.'" data-url="'.$link.'" data-desc="'. $summary .'">
-                      <span class="fab fa-twitter-square" aria-hidden="true" ></span>
-                      <span class="screen-reader-text">Twitter</span>
-                    </div>';
-	$output  .= '</div><!-- social -->';
-
-$output  .= '<div class="rightArrow">
-				<span class="fas fa-arrow-circle-right" aria-hidden="true" ></span>
-                <span class="screen-reader-text">Next Post</span>
-			</div>';
-$output  .= '<div class="leftArrow">
-				<span class="fas fa-arrow-circle-left" aria-hidden="true" ></span>
-                <span class="screen-reader-text">Back Post</span>
-			</div>';
-$output  .= '</div><!-- postContent -->';
-?>
+		<div class="pageBody"><?php echo $body; ?></div>
+	<?php endif; ?>
+	<div data-id="<?php echo $post->ID; ?>" class="postClose fas fa-times-circle"></div>';
+	<?php include('social.php'); ?>
+	<div class="rightArrow">
+		<span class="fas fa-arrow-circle-right" aria-hidden="true" ></span>
+		<span class="screen-reader-text">Next Post</span>
+	</div>
+	<div class="leftArrow">
+		<span class="fas fa-arrow-circle-left" aria-hidden="true" ></span>
+		<span class="screen-reader-text">Back Post</span>
+	</div>
+</div><!-- postContent -->
