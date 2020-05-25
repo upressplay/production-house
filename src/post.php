@@ -10,13 +10,15 @@
 	$vidid = get_field('youtube_vidid');
 	$playlist = get_field('youtube_playlist');
 	$vimeoid = get_field('vimeo_vidid');
+	$vidFile = get_field('video_file');
 
 	$thumb = get_the_post_thumbnail_url( $post->ID, $thumb_size );
 	//$img = get_the_post_thumbnail_url( $post->ID );
 
+	$headerImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "header" );
 	$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "large" );
 
-	if($thumb_size == 'pageThumbTall') {
+	if($thumb_size == 'tall') {
 		$page_poster = get_field('page_poster');
 		$thumb = $page_poster['sizes']['medium'];
 	}
@@ -27,26 +29,26 @@
 	<a href="<?php echo $link; ?>" data-postid="<?php echo $post->ID; ?>" class="<?php echo $cat; ?> post" >	
 <?php endif; ?>
 
-<div class="pageThumb<?php echo $thumb_layout;?>" >
+<div class="thumb <?php echo $thumb_layout;?>" >
 <?php if($show_img) : ?>
-	<div class="<?php echo $thumb_size;?>"><img src="<?php echo $thumb; ?>" alt="<?php echo $title;?>"/></div>	
+	<img class="<?php echo $thumb_size;?>" src="<?php echo $thumb; ?>" alt="<?php echo $title;?>"/>
 <?php endif; ?>
 <?php if($show_title || $show_date || $show_body || $show_summary) : ?>
-	<div class="pageThumbInfo">	
+	<div class="info">	
 	<?php if($show_title) : ?>
-		<h3 class="pageThumbTitle"><?php echo $title; ?>	
+		<h3 class="title"><?php echo $title; ?>	
 	<?php endif; ?>
 	<?php if($show_date) : ?>
-		<div class="pageThumbDate"><?php echo $date;?></div>	
+		<div class="date"><?php echo $date;?></div>	
 	<?php endif; ?>
 	<?php if($show_title) : ?>
 		</h3><!-- pageThumbTitle -->	
 	<?php endif;?>
 	<?php if($show_body) : ?>
-		<div class="pageThumbBody"><?php echo $body; ?></div>	
+		<div class="excerpt"><?php echo $body; ?></div>	
 	<?php endif; ?>
 	<?php if($show_summary) : ?>
-		<div class="pageThumbBody"><?php echo $summary;?></div>
+		<div class="excerpt"><?php echo $summary;?></div>
 	<?php endif; ?>
 	</div><!-- pageThumbInfo -->
 	<?php endif; ?>
@@ -55,21 +57,49 @@
 <?php if($show_link) : ?>
 	</a>	
 <?php endif; ?>
-
-<div id="<?php echo $post->ID;?>" class="postContent" data-hires="<?php echo $img[0];?>'" data-hires-w="<?php echo $img[1];?>" data-hires-h="<?php echo $img[2]; ?>" data-vidid="<?php echo $vidid;?>" data-vimeoid="<?php echo $vimeoid; ?>" data-playlist="<?php echo $playlist;?>" data-cat="<?php echo $cat;?>">
-	<?php if($cat != "videos" && $cat != "gallery") :?>
-		<div class="pageSecTitle"><?php echo $title;?></div>
-		<div class="pageThumbDate"><?php echo $date;?></div>	
-
-		<div class="pageBody"><?php echo $body; ?></div>
+<div id="post-<?php echo $post->ID;?>" class="post-content" data-hires="<?php echo $img[0];?>'" data-hires-w="<?php echo $img[1];?>" data-hires-h="<?php echo $img[2]; ?>" data-header="<?php echo $headerImg[0]; ?>" data-vidid="<?php echo $vidid;?>" data-vimeoid="<?php echo $vimeoid; ?>" data-vidfile="<?php echo $vidFile; ?>" data-playlist="<?php echo $playlist;?>" data-cat="<?php echo $cat;?>">
+	
+	
+	<?php if($cat == "news") :?>
+		<div class="post-header-img"></div>
+		<div class="section-title"><?php echo $title;?></div>
+		<div class="date"><?php echo $date;?></div>	
+		<div class="page-content"><?php echo $body; ?></div>
 	<?php endif; ?>
-	<div data-id="<?php echo $post->ID; ?>" class="postClose fas fa-times-circle"></div>';
+
+	<?php if($cat == "gallery") :?>
+		<div class="holder">
+			<figure>
+				<figcaption>
+					<div class="title"><?php echo $title;?></div>
+					<div class="date"><?php echo $date;?></div>
+				</figcaption>
+			</figure>
+		</div>
+	<?php endif; ?>
+
+	<?php if($cat == "videos") :?>
+		<div class="holder">
+		<figure>
+				<figcaption>
+					<div class="title"><?php echo $title;?></div>
+					<div class="date"><?php echo $date;?></div>
+					<div class="excerpt"><?php echo $summary; ?></div>
+				</figcaption>
+			</figure>
+		</div>
+	<?php endif; ?>
+	
+
+
+	<div data-id="<?php echo $post->ID; ?>" class="close ui fas fa-times-circle"></div>
+	
 	<?php include('social.php'); ?>
-	<div class="rightArrow">
+	<div class="right ui">
 		<span class="fas fa-arrow-circle-right" aria-hidden="true" ></span>
 		<span class="screen-reader-text">Next Post</span>
 	</div>
-	<div class="leftArrow">
+	<div class="left ui">
 		<span class="fas fa-arrow-circle-left" aria-hidden="true" ></span>
 		<span class="screen-reader-text">Back Post</span>
 	</div>

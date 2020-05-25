@@ -1,3 +1,4 @@
+[
     {
         "key": "group_5af536514c72c",
         "title": "Page Fields",
@@ -215,17 +216,17 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "Sq": "Square",
-                                    "SqSm": "Small Square",
-                                    "Rect": "Rectangle",
-                                    "Tall": "Tall"
+                                    "sq": "Square",
+                                    "sqsm": "Small Square",
+                                    "rect": "Rectangle",
+                                    "tall": "tall"
                                 },
                                 "allow_null": 0,
                                 "other_choice": 0,
-                                "save_other_choice": 0,
                                 "default_value": "",
                                 "layout": "vertical",
-                                "return_format": "value"
+                                "return_format": "value",
+                                "save_other_choice": 0
                             },
                             {
                                 "key": "field_5b00bd3c44acc",
@@ -250,7 +251,7 @@
                                 },
                                 "allow_custom": 0,
                                 "save_custom": 0,
-                                "default_value": [],
+                                "default_value": false,
                                 "layout": "vertical",
                                 "toggle": 0,
                                 "return_format": "value"
@@ -269,16 +270,16 @@
                                     "id": ""
                                 },
                                 "choices": {
-                                    "Vert": "Vertical",
-                                    "Sm": "Vertical Small",
-                                    "Horz": "Horizontal"
+                                    "vert": "Vertical",
+                                    "sm": "Vertical Small",
+                                    "horz": "Horizontal"
                                 },
                                 "allow_null": 0,
                                 "other_choice": 0,
-                                "save_other_choice": 0,
                                 "default_value": "",
                                 "layout": "vertical",
-                                "return_format": "value"
+                                "return_format": "value",
+                                "save_other_choice": 0
                             }
                         ]
                     }
@@ -300,6 +301,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": "",
-        "active": 1,
+        "active": true,
         "description": ""
     }
+]

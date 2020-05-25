@@ -1,12 +1,10 @@
 
 <?php if ( has_post_thumbnail() ) : ?>
-	<div class="header-img" data-img="<?php the_post_thumbnail_url('header'); ?>"></div>
+	<div class="header-img" data-img="<?php the_post_thumbnail_url(); ?>"></div>
 <?php endif; ?>
 <h1 class="section-title"> <?php the_title(); ?> </h1>
 <?php include('social.php'); ?>
 <article class="page-content">
-
-1111
 	<?php the_content(); ?>
 </article>
 <div class="page-nav">

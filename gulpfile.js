@@ -6,6 +6,12 @@ const gulp = require('gulp');
 Begin gulp plugins
 ===================================================*/
 
+/** Webpack **/
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
+const webpackConfig = require('./webpack.config.js');
+
+
 /** JS Processors */
 const eslint = require("gulp-eslint");       //js lint
 const uglify = require('gulp-uglify');    //minify javascript
@@ -100,6 +106,10 @@ function jsHint() {
 	.src(['src/js/**/*.js','!src/js/lib/**/*.js','!src/js/**/*.min.js']) // path to your files excluding lib folder and .min files
 	.pipe(plumber({errorHandler: onError})) //if the validator crashes, fail gracefully
 	.pipe(eslint({
+		"parserOptions": {
+			"ecmaVersion": 6,
+			"sourceType": "module",
+		},
 		"globals":[
 			"jQuery",
 			"$"
@@ -107,6 +117,13 @@ function jsHint() {
 	})) //validate the javascript
 	.pipe(eslint.format()) //format the error output for easy readability
 	.pipe(eslint.failAfterError());
+}
+
+function jsWebpack() {
+	return gulp.src('./src/js/index.js')
+	.pipe(webpackStream(webpackConfig), webpack)
+	.pipe(gulp.dest('./build/js'))
+	.pipe(browsersync.stream());
 }
 
 function jsMinify() {
@@ -175,7 +192,7 @@ function images(){ //optimize all image files
 function fonts() { //copy over fonts, since fonts are already optimized we only need to copy them as is
 	return gulp
 	.src('src/fonts/**/*')
-	.pipe(gulp.dest('fonts'));
+	.pipe(gulp.dest('build/fonts'));
 }
 
 function data() { //copy over json
@@ -223,7 +240,7 @@ const pages = gulp.series(
 //validate and minify scripts
 const scripts = gulp.series(
 	jsHint, //make sure the javascript validates before trying to minify it
-	gulp.parallel(jsMinify)
+	gulp.parallel(jsWebpack)
 );
 
 //Parse SASS and process css
@@ -237,6 +254,7 @@ const watch = gulp.parallel(
 );
 
 const build = gulp.series(
+	clean,
 	gulp.parallel(styles, scripts, images, fonts, media, pages, data)
 );
 

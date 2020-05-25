@@ -1,17 +1,8 @@
 <?php
-$cdn = "/";
-	$meta_title_default = "Matt Brookens";
-	$meta_title = $meta_title_default;
-	$meta_desc_default = "";
-	$meta_desc = $meta_desc_default;
-	$site_url = "http://" . $_SERVER[HTTP_HOST];
-	$meta_url = "http://" . $_SERVER[HTTP_HOST] . $_SERVER['REQUEST_URI'];
-	$meta_img_default = $site_url . '/images/mb_social_share.jpg';
-	$meta_img = $meta_img_default;
 	global $segments;
 	$segments = explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/')); 
 	$template_uri = get_template_directory_uri();
-	?>
+?>
 
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -47,33 +38,30 @@ $cdn = "/";
 	</head>
 	<body <?php body_class(); ?>>
 	<header>
-		<a href="/">
+		<a href="/" class="nav-logo">
 			<?php 
 				$nav_logo = get_option('logo'); 
 				if(!$nav_logo) {
 					$nav_logo = $template_uri .'/img/site_logo.jpg';
 				}
-
 			?>
-			<div id="navLogo">	
-				<img src="<?php echo $nav_logo; ?>" alt="Matt Brookens Logo"/>
-			</div>	
+			<img src="<?php echo $nav_logo; ?>" alt="Matt Brookens Logo"/>
 		</a>
-		<nav id="navButtons">
-			<div id="navBtnHolder">
+		<nav>
+			<div class="nav-btns">
 			<?php
 				$menu_items = wp_get_nav_menu_items( 'Top Menu' );
 				foreach ( (array) $menu_items as $key => $menu_item ) :
 				   	$title = $menu_item->title;
 				    $url = $menu_item->url;
 				    $attr_title = $menu_item->attr_title;
-				    $btn_class = "navBtn rainbow";
+				    $btn_class = "navBtn";
 				    if($attr_title == $segments[0]) $btn_class = $btn_class . " active"; ?>
 					<a href="<?php echo $url; ?>" class="<?php echo $btn_class; ?>"><?php echo $title; ?></a>
 					
 			<?php endforeach; ?>
 			</div>
-			<div id="socialBtnHolder">
+			<div class="social-btns">
 			<?php
 				$btn_class;
 				$menu_items = wp_get_nav_menu_items( 'Social Menu' );
@@ -95,8 +83,8 @@ $cdn = "/";
 			</div>
 		</nav>
 
-		<div id="navMenuBtn" class="fa fa-bars" ></div>
-      	<div id="navMenuCloseBtn" class="fa fa-times" ></div>
+		<div id="navMenuBtn" class="fa fa-bars menu-btn active" ></div>
+      	<div id="navMenuCloseBtn" class="fa fa-times close-btn" ></div>
 	</header>
 	<div id="site">
-		<div id="siteHolder">
+		<div class="holder">

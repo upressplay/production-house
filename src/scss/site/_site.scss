@@ -30,23 +30,27 @@ html
     @include bp-large
     {
     }
+    .holder
+    {
+        overflow-x: hidden;
+        overflow-y: hidden;
+
+        width: 100vw;
+        min-height: 100vh;
+
+        @include bp-medium
+        {
+        }
+        @include bp-large
+        {
+        }
+        &.active {
+            overflow-y: auto;   
+        }
+    }
 }
 
-#siteHolder
-{
-    overflow-x: hidden;
-    overflow-y: auto;
 
-    width: 100vw;
-    min-height: 100vh;
-
-    @include bp-medium
-    {
-    }
-    @include bp-large
-    {
-    }
-}
 
 img
 {
@@ -79,6 +83,7 @@ p
 a:link
 {
     text-decoration: none;
+    font-weight: bold;
 
     color: #24293d;
 }
@@ -86,6 +91,7 @@ a:link
 a:visited
 {
     text-decoration: none;
+    font-weight: bold;
 
     color: #24293d;
 }
@@ -93,6 +99,7 @@ a:visited
 a:hover
 {
     text-decoration: none;
+    font-weight: bold;
 
     color: #3a3f5d;
 }
@@ -100,6 +107,7 @@ a:hover
 a:active
 {
     text-decoration: none;
+    font-weight: bold;
 
     color: #24293d;
 }

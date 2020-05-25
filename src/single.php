@@ -7,7 +7,9 @@
 
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<?php if ($catSlug == "videos") {
-				get_template_part( 'entry-videos' );	
+				get_template_part( 'entry-videos' );
+			} elseif  ($catSlug == "gallery") {
+				get_template_part( 'entry-gallery' );	
 			} else {
 				get_template_part( 'entry' );
 			} 

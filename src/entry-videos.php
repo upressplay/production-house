@@ -2,15 +2,16 @@
 	$vidid = get_field('youtube_vidid');
 	$playlist = get_field('youtube_playlist');
 	$vimeoid = get_field('vimeo_vidid');
+	$vidFile = get_field('video_file');
 ?>
-<div id="headerImg">
-	<img src="<?php if ( has_post_thumbnail() ) { the_post_thumbnail_url(); } ?>"/>
-</div>
-<h1 class="pageSecTitle"> <?php the_title(); ?> </h1>
+<?php if ( has_post_thumbnail() ) : ?>
+	<div class="header-img" data-img="<?php the_post_thumbnail_url('header'); ?>"></div>
+<?php endif; ?>
+<h1 class="section-title"> <?php the_title(); ?> </h1>
 <?php include('social.php'); ?>
-<article class="pageBody">
+<article class="page-content">
 	
-	<div class="pageVid">
+	<div class="vid">
 	<?php 
 		$vidEmbed;
 		if($vidid != "") {
@@ -23,6 +24,9 @@
 
 		if($vimeoid != "") {
 			$vidEmbed = '<iframe src="https://player.vimeo.com/video/'.$vimeoid.'" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+		}
+		if($vidFile != "") {
+			$vidEmbed = '<video width="100%" height="100%" controls autoplay><source src="'.$vidFile.'" type="video/mp4">Your browser does not support the video tag.</video>';
 		}
 		echo $vidEmbed;
 	?>

@@ -18,7 +18,7 @@
     <section class="resume-card">
         <?php if($headshot) : ?> 
             <a href="<?php echo $headshot['sizes']['large']; ?>" target="_blank">
-                <img src="<?php echo $headshot['sizes']['pageThumbSq']; ?>"/>
+                <img src="<?php echo $headshot['sizes']['sq']; ?>"/>
             </a>
         <?php endif; ?>
         <?php if($name) : ?> 

@@ -1,187 +1,170 @@
-#navLogo
+header
 {
-    position: fixed;
-    z-index: 1003;
-    top: rem(-2);
-    left: rem(50);
-
-    width: rem(150);
-    height: rem(150);
-
-    border: rem(2) solid #000;
-
-    @include bp-medium
+    .nav-logo
     {
+        position: fixed;
+        z-index: 1003;
         top: rem(-2);
-        left: rem(100);
+        left: rem(50);
 
-        width: rem(130);
-        height: rem(130);
+        width: rem(150);
+        height: rem(150);
 
         border: rem(2) solid #000;
+
+        @include bp-medium
+        {
+            top: rem(-2);
+            left: rem(100);
+
+            width: rem(130);
+            height: rem(130);
+
+            border: rem(2) solid #000;
+        }
+        @include bp-large
+        {
+            top: rem(-2);
+            left: rem(100);
+
+            width: rem(130);
+            height: rem(130);
+
+            border: rem(2) solid #000;
+        }
     }
-    @include bp-large
+    nav
     {
-        top: rem(-2);
-        left: rem(100);
+        position: fixed;
+        z-index: 1002;
+        top: -100%;
+        right: rem(0);
 
-        width: rem(130);
-        height: rem(130);
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
 
-        border: rem(2) solid #000;
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+        padding-top: rem(240);
+
+        transition: top .5s ease-in-out;
+
+        background-color: #000;
+
+        @include bp-medium
+        {
+            top: rem(18);
+            right: rem(18);
+
+            flex-direction: row;
+
+            width: auto;
+            height: auto;
+            padding-top: 0;
+
+            flex-wrap: nowrap;
+        }
+        @include bp-large
+        {
+            top: rem(35);
+            right: rem(0);
+
+            width: auto;
+            height: auto;
+            padding-top: 0;
+        }
+        &.active
+        {
+            top: 0;
+        }
+        .nav-btns
+        {
+            display: flex;
+            flex-direction: column;
+
+            flex-wrap: wrap;
+            @include bp-medium
+            {
+                flex-direction: row;
+
+                flex-wrap: nowrap;
+            }
+        }
+        .social-btns
+        {
+            display: inline-block;
+
+            width: 100%;
+            padding-top: rem(40);
+
+            text-align: center;
+            vertical-align: top;
+
+            @include bp-medium
+            {
+                width: auto;
+                padding-top: 0;
+            }
+            @include bp-large
+            {
+                width: auto;
+                padding-top: 0;
+            }
+        }
+
     }
-}
-#navLogo img
-{
-    width: 100%;
-    height: auto;
-}
-
-#navMenuBtn
-{
-    font-size: rem(40);
-
-    position: fixed;
-    z-index: 1001;
-    top: rem(18);
-    right: rem(18);
-
-    visibility: visible;
-
-    padding: rem(40);
-
-    color: #fff;
-    background-color: #000;
-
-    @include bp-medium
+    .menu-btn,
+    .close-btn
     {
-        font-size: rem(18);
+        font-size: rem(40);
 
-        visibility: hidden;
-
-        padding: 0 rem(10);
-    }
-    @include bp-large
-    {
-        font-size: rem(18);
-
-        visibility: hidden;
-
-        padding: 0 rem(10);
-    }
-}
-
-#navMenuCloseBtn
-{
-    font-size: rem(55);
-
-    position: fixed;
-    z-index: 1003;
-    top: rem(18);
-    right: rem(18);
-
-    visibility: hidden;
-
-    padding: rem(30);
-
-    color: #fff;
-    background-color: #000;
-
-    @include bp-medium
-    {
-        font-size: rem(18);
-
-        padding: 0 rem(10);
-    }
-    @include bp-large
-    {
-        font-size: rem(18);
-
-        padding: 0 rem(10);
-    }
-}
-
-nav
-{
-    position: fixed;
-    z-index: 1002;
-    top: rem(0);
-    right: rem(0);
-
-    display: none;
-    flex-direction: column;
-
-    width: 100%;
-    height: 100%;
-    padding-top: rem(240);
-
-    opacity: 0;
-    background-color: #000;
-
-    @include bp-medium
-    {
+        position: fixed;
+        z-index: 1001;
         top: rem(18);
         right: rem(18);
 
-        display: flex;
-        flex-direction: row;
+        padding: rem(40);
 
-        width: auto;
-        height: auto;
-        padding-top: 0;
+        opacity: 0;
+        color: #fff;
+        background-color: #000;
 
-        opacity: 1;
+        @include bp-medium
+        {
+            font-size: rem(18);
 
-        flex-wrap: nowrap;
+            visibility: hidden;
+
+            padding: 0 rem(10);
+        }
+        @include bp-large
+        {
+            font-size: rem(18);
+
+            visibility: hidden;
+
+            padding: 0 rem(10);
+        }
+        &.active
+        {
+            opacity: 1;
+        }
     }
-    @include bp-large
+    .close-btn
     {
-        top: rem(35);
-        right: rem(0);
-
-        width: auto;
-        height: auto;
-        padding-top: 0;
-
-        opacity: 1;
+        z-index: 1003;
     }
 }
 
-#navBtnHolder
-{
-    display: flex;
-    flex-direction: column;
 
-    flex-wrap: wrap;
-    @include bp-medium
-    {
-        flex-direction: row;
 
-        flex-wrap: nowrap;
-    }
-}
 
-#socialBtnHolder
-{
-    display: inline-block;
 
-    width: 100%;
-    padding-top: rem(40);
 
-    text-align: center;
-    vertical-align: top;
 
-    @include bp-medium
-    {
-        width: auto;
-        padding-top: 0;
-    }
-    @include bp-large
-    {
-        width: auto;
-        padding-top: 0;
-    }
-}
+
 
 .navBtn
 {

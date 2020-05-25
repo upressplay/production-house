@@ -15,31 +15,31 @@
 			$cats = get_categories();
 			
 			if ( has_post_thumbnail() ) : ?>
-				<div class="headerImg" style="background-image:url(<?php echo  get_the_post_thumbnail_url($post->ID, "header");?>)"></div> 
+				<div class="header-img" data-img="<?php echo  get_the_post_thumbnail_url($post->ID, "header");?>"></div> 
 			<?php endif; ?>
 			<?php if( !is_front_page() ) : ?>
-				<h1 class="pageSecTitle rainbow"> <?php echo get_the_title(); ?> </h1>	
+				<h1 class="section-title"> <?php echo get_the_title(); ?> </h1>	
 			<?php endif; ?>
 
 			
-			<div class="pageHeader">
+			<div class="page-header">
 			
 		    <?php if($page_poster != "" || have_rows('page_links') ) :
 		    	if(!empty_content($content)) : ?>
-			    	<div class="pageInfoBody">
+			    	<div class="page-content">
 			    		<?php echo $content; ?> 
-			    	</div><!-- pageInfoBody -->
+			    	</div><!-- page-content -->
 			<?php endif; ?>
 
-		    	<div class="pageInfo">
+		    	<div class="info">
 				<?php if($page_poster != "") : ?>
-					<a href="<?php echo $page_poster['sizes']['large']; ?>" class="pagePoster" target="_blank"> 
+					<a href="<?php echo $page_poster['sizes']['large']; ?>" class="poster" target="_blank"> 
 						<img src="<?php echo $page_poster['sizes']['medium'];?>">
 					</a>
 				<?php endif; ?>
 				
 				<?php if( have_rows('page_links') ) :	?>	
-					<div class="pageLinks"> 
+					<div class="links"> 
 						<?php while( have_rows('page_links') ) :
 							the_row(); ?>
 							<a href="<?php echo get_sub_field('page_link'); ?>" target="_blank" class="pageLink"> 
@@ -50,13 +50,13 @@
 				<?php endif; ?>
 				
 				<?php include('social.php'); ?>
-			    </div><!-- pageInfo -->
+			    </div><!-- .info -->
 
 				<?php else: ?>
 			    <?php if(!empty_content($content)) : ?>
-		    		<div class="pageBody"> 
+		    		<div class="page-content"> 
 		    			<?php echo $content; ?> 
-		    		</div><!-- pageBody -->
+		    		</div><!-- page-content -->
 				<?php endif; ?>
 		    	
 			<?php endif; ?>
@@ -80,21 +80,21 @@
 		       		if($section_title != "") : ?>
 
 						<?php if($section_link != "") : ?>
-							<div class="pageSecTitleLink">
+							<div class="section-title-link">
 							<a href="<?php echo $section_link; ?>"> 
-							<h2 class="pageSecTitle rainbow">
+							<h2 class="section-title rainbow">
 								<?php echo $section_title.' ';?>
 							</h2>
 							</a></div>
 						<?php else: ?>
-							<h2 class="pageSecTitle rainbow"> <?php echo $section_title;?> </h2>
+							<h2 class="section-title rainbow"> <?php echo $section_title;?> </h2>
 						<?php endif; ?>
 						
 					<?php endif; ?>
-					<div class="pageRow"> 
+					<div class="page-row"> 
 					<?php 
 					$thumb_style = get_sub_field('thumb_style'); 
-		       		$thumb_size = 'pageThumb'.$thumb_style['thumb_size'];
+		       		$thumb_size = $thumb_style['thumb_size'];
 		       		$show_img = false;
 		       		$show_title = false;
 		       		$show_date = false;
@@ -128,7 +128,7 @@
 
 				<?php endwhile; ?>
 				<?php endif; ?>
-			<div id="postOverlay"></div><!-- postOverlay -->
+			<div id="post-overlay"></div><!-- post-overlay -->
 			<?php 
 
 			foreach ( $cats as $cat ) :
@@ -151,16 +151,16 @@
 		       			$show_date = true;
 		       			$show_body = false;
 		       			$show_summary = true;
-		       			$thumb_size = 'pageThumbRect';
-		       			$thumb_layout = "Vert";
+		       			$thumb_size = 'rect';
+		       			$thumb_layout = "vert";
 		       			if($cat_name == "News") {
-		       				$thumb_size = 'pageThumbSq';
-		       				$thumb_layout = "Horz";	
+		       				$thumb_size = 'sq';
+		       				$thumb_layout = "horz";	
 		       			}
 
 		       			if($cat_name == "Gallery") {
-		       				$thumb_size = 'pageThumbSqSm';
-		       				$thumb_layout = "Sm";
+		       				$thumb_size = 'sqsm';
+		       				$thumb_layout = "sm";
 		       				$show_title = false;
 		       				$show_date = false;
 		       				$show_summary = false;
@@ -168,8 +168,8 @@
 		       			if($cat_name == "Team") {
 		       				$show_link = false;
 		       				$show_date = false;
-		       				$thumb_size = 'pageThumbSq';
-		       				$thumb_layout = "Horz";	
+		       				$thumb_size = 'sq';
+		       				$thumb_layout = "horz";	
 		       			}
 		       			if($cat_name == "Services") {
 		       				$show_link = false;
