@@ -6,5 +6,6 @@
 	</footer>
 	</div><!-- end siteHolder -->
 </div><!-- end site -->
+<div id="post-overlay"></div><!-- post-overlay -->
 </body>
 </html>

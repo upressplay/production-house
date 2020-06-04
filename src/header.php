@@ -10,7 +10,7 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/main.min.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo $template_uri; ?>/css/main.min.css" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.1/TweenMax.min.js"></script>
 
@@ -55,7 +55,7 @@
 				   	$title = $menu_item->title;
 				    $url = $menu_item->url;
 				    $attr_title = $menu_item->attr_title;
-				    $btn_class = "navBtn";
+				    $btn_class = "nav-btn";
 				    if($attr_title == $segments[0]) $btn_class = $btn_class . " active"; ?>
 					<a href="<?php echo $url; ?>" class="<?php echo $btn_class; ?>"><?php echo $title; ?></a>
 					
@@ -70,7 +70,7 @@
 				    $url = $menu_item->url;
 				    $attr_title = $menu_item->attr_title;
 				    $icon_class = get_field('icon_class', $menu_item);
-				    $btn_class = "socialBtn rainbow";
+				    $btn_class = "social-btn";
 
 				   	echo '<a href="'.$url.'" target="_blank" >
                         <div class="'.$btn_class.'">

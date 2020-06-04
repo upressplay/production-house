@@ -17,6 +17,7 @@
 
 	$headerImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "header" );
 	$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "large" );
+	$hires = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
 
 	if($thumb_size == 'tall') {
 		$page_poster = get_field('page_poster');
@@ -31,7 +32,7 @@
 
 <div class="thumb <?php echo $thumb_layout;?>" >
 <?php if($show_img) : ?>
-	<img class="<?php echo $thumb_size;?>" src="<?php echo $thumb; ?>" alt="<?php echo $title;?>"/>
+	<div class="<?php echo $thumb_size;?> img-loader" data-img="<?php echo $thumb; ?>" data-title="<?php echo $title;?>"></div>
 <?php endif; ?>
 <?php if($show_title || $show_date || $show_body || $show_summary) : ?>
 	<div class="info">	
@@ -57,7 +58,7 @@
 <?php if($show_link) : ?>
 	</a>	
 <?php endif; ?>
-<div id="post-<?php echo $post->ID;?>" class="post-content" data-hires="<?php echo $img[0];?>'" data-hires-w="<?php echo $img[1];?>" data-hires-h="<?php echo $img[2]; ?>" data-header="<?php echo $headerImg[0]; ?>" data-vidid="<?php echo $vidid;?>" data-vimeoid="<?php echo $vimeoid; ?>" data-vidfile="<?php echo $vidFile; ?>" data-playlist="<?php echo $playlist;?>" data-cat="<?php echo $cat;?>">
+<div id="post-<?php echo $post->ID;?>" class="post-content" data-img="<?php echo $img[0];?>" data-img-w="<?php echo $img[1];?>" data-img-h="<?php echo $img[2]; ?>" data-header="<?php echo $headerImg[0]; ?>" data-hires="<?php echo $hires[0];?>" data-vidid="<?php echo $vidid;?>" data-vimeoid="<?php echo $vimeoid; ?>" data-vidfile="<?php echo $vidFile; ?>" data-playlist="<?php echo $playlist;?>" data-cat="<?php echo $cat;?>">
 	
 	
 	<?php if($cat == "news") :?>

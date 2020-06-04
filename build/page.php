@@ -15,7 +15,7 @@
 			$cats = get_categories();
 			
 			if ( has_post_thumbnail() ) : ?>
-				<div class="header-img" data-img="<?php echo  get_the_post_thumbnail_url($post->ID, "header");?>"></div> 
+				<div class="header-img img-loader" data-img="<?php echo  get_the_post_thumbnail_url($post->ID, "header");?>"></div> 
 			<?php endif; ?>
 			<?php if( !is_front_page() ) : ?>
 				<h1 class="section-title"> <?php echo get_the_title(); ?> </h1>	
@@ -128,64 +128,10 @@
 
 				<?php endwhile; ?>
 				<?php endif; ?>
-			<div id="post-overlay"></div><!-- post-overlay -->
+			
 			<?php 
 
-			foreach ( $cats as $cat ) :
-
-				 $cat_name =$cat->name;
-
-				if( is_page($cat_name)) :
-					global $post;
-					$args = array( 'category_name' => $cat_name,  'numberposts' => 100, ); ?>
-					<div class="pageRow">
-					<?php
-					$category_posts = get_posts( $args );
-
-					$posts_count = count($category_posts);
-					foreach ( $category_posts as $post ) :
-						setup_postdata( $post ); 
-						$show_link = true;
-						$show_img = true;
-		       			$show_title = true;
-		       			$show_date = true;
-		       			$show_body = false;
-		       			$show_summary = true;
-		       			$thumb_size = 'rect';
-		       			$thumb_layout = "vert";
-		       			if($cat_name == "News") {
-		       				$thumb_size = 'sq';
-		       				$thumb_layout = "horz";	
-		       			}
-
-		       			if($cat_name == "Gallery") {
-		       				$thumb_size = 'sqsm';
-		       				$thumb_layout = "sm";
-		       				$show_title = false;
-		       				$show_date = false;
-		       				$show_summary = false;
-		       			}
-		       			if($cat_name == "Team") {
-		       				$show_link = false;
-		       				$show_date = false;
-		       				$thumb_size = 'sq';
-		       				$thumb_layout = "horz";	
-		       			}
-		       			if($cat_name == "Services") {
-		       				$show_link = false;
-		       				$show_date = false;
-		       				$show_body = true;
-		       				$show_summary = false;
-		       			}
-
-						include( locate_template( 'post.php', false, false ) ); 	
-
-					endforeach;
-					
-					wp_reset_postdata(); ?>
-					</div> 
-				<?php endif;
-			endforeach;
+			
 		}
 	}
 

@@ -28,7 +28,6 @@
 }
 .header-img
 {
-    
     transition: opacity .5s ease-in-out;
 
     opacity: 0;
@@ -359,13 +358,14 @@
 
     &.horz
     {
-        
         flex-direction: column;
+
         width: rem(750);
 
         @include bp-medium
         {
             flex-direction: row;
+
             width: rem(635);
 
             text-align: left;
@@ -389,7 +389,7 @@
 
         @include bp-medium
         {
-            width: rem(160);
+            width: rem(158.75);
         }
         @include bp-large
         {
@@ -450,8 +450,8 @@
 
         @include bp-medium
         {
-            width: rem(160);
-            height: rem(160);
+            width: rem(158.75);
+            height: rem(158.75);
         }
         @include bp-large
         {
@@ -563,8 +563,9 @@
 
     &.active
     {
-        transition: opacity .5 ease-in-out 0.25s, height 0s ease-in-out 0.5s;
         height: 100vh;
+
+        transition: opacity .5 ease-in-out .25s, height 0s ease-in-out .5s;
 
         opacity: 1;
     }
@@ -574,7 +575,7 @@
 {
     position: fixed;
     z-index: 1010;
-    top: -100%;
+    top: -120%;
     left: 0;
 
     overflow-x: hidden;
@@ -594,36 +595,41 @@
 
         opacity: 1;
     }
-    .holder {
-        width: 100vw;
-        height: 100vh;
+    .holder
+    {
         display: flex;
         flex-direction: column;
+
+        width: 100vw;
+        height: 100vh;
+
         justify-content: center;
         align-items: center;
-        figure {
-            
-            img {
-                width:90vw;
-                height:auto;
+        figure
+        {
+            img
+            {
+                width: 90vw;
+                height: auto;
 
                 @include bp-medium
                 {
-                    width:auto;
-                    height:70vh;
+                    width: auto;
+                    height: 70vh;
                 }
                 @include bp-large
                 {
-                    height:80vh;
+                    height: 80vh;
                 }
             }
-            .vid {
+            .vid
+            {
                 width: rem(700);
                 height: rem(393.75);
-            
+
                 text-align: center;
                 vertical-align: middle;
-            
+
                 @include bp-medium
                 {
                     width: rem(1000);
@@ -635,9 +641,11 @@
                     height: rem(562.5);
                 }
             }
-            figcaption {
-                text-align: center;
+            figcaption
+            {
                 margin: rem(20);
+
+                text-align: center;
 
                 @include bp-medium
                 {
@@ -647,7 +655,8 @@
                 {
                     margin: rem(20) 0 rem(20) 0;
                 }
-                .title {
+                .title
+                {
                     font-family: $headline-font;
                     font-size: rem(50);
                     line-height: rem(60);
@@ -732,10 +741,10 @@
     }
     .ui
     {
-        z-index: 1050;
         font-size: rem(50);
 
         position: absolute;
+        z-index: 1050;
 
         cursor: pointer;
         transition: all .3s;
@@ -866,8 +875,8 @@
             }
             &:hover
             {
-                color: $color-1;
                 opacity: .8;
+                color: $color-1;
             }
         }
     }
@@ -945,12 +954,9 @@
     }
 }
 
-.post-content
-{
-    
-}
 
-.page-nav
+
+.post-nav
 {
     font-size: rem(100);
 

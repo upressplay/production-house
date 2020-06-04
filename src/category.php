@@ -1,9 +1,12 @@
-<?php get_header(); 
-$cat = get_the_category();
-$cat_name =$cat->name;
-echo $cat_name;
+<?php 
+    get_header(); 
+    $cat = get_the_category();
+    $cat_name = $cat[0]->name;
 ?>
-<div class="">
+
+<div class="header-img img-loader" data-img="/wp-content/uploads/2020/05/eo_header_logo-1600x600.jpg"></div> 
+<h1 class="section-title"> <?php echo $cat_name; ?> </h1>	
+<div class="category">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php 
     
@@ -44,4 +47,5 @@ echo $cat_name;
 <?php endwhile; endif; ?>
 </div>
 
+<?php include('page-nav.php'); ?>
 <?php get_footer(); ?>

@@ -44,8 +44,9 @@ html
         @include bp-large
         {
         }
-        &.active {
-            overflow-y: auto;   
+        &.active
+        {
+            overflow-y: auto;
         }
     }
 }
@@ -82,32 +83,36 @@ p
 }
 a:link
 {
-    text-decoration: none;
     font-weight: bold;
+
+    text-decoration: none;
 
     color: #24293d;
 }
 
 a:visited
 {
-    text-decoration: none;
     font-weight: bold;
+
+    text-decoration: none;
 
     color: #24293d;
 }
 
 a:hover
 {
-    text-decoration: none;
     font-weight: bold;
+
+    text-decoration: none;
 
     color: #3a3f5d;
 }
 
 a:active
 {
-    text-decoration: none;
     font-weight: bold;
+
+    text-decoration: none;
 
     color: #24293d;
 }
