@@ -183,6 +183,7 @@
             font-family: $post-title-font;
             font-size: rem(28);
             line-height: rem(44);
+            margin: rem(5) 0;
 
             text-align: center;
 
@@ -190,11 +191,13 @@
             {
                 font-size: rem(21);
                 line-height: rem(30);
+                margin: rem(5) 0;
             }
             @include bp-large
             {
-                font-size: rem(24);
-                line-height: rem(36);
+                font-size: rem(18);
+                line-height: rem(21);
+                margin: rem(5) 0;
             }
         }
     }

@@ -1,7 +1,7 @@
 	
 		<footer id="footer" role="contentinfo">
 		<div id="copyright">
-			©2020 Ed O'Ross 
+			<?php echo get_field('footer_copyright', 'option'); ?>
 		</div>
 	</footer>
 	</div><!-- end siteHolder -->

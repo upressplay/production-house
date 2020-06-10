@@ -7,6 +7,16 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php the_field('google_analytics', 'option'); ?>"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', '<?php the_field('google_analytics', 'option'); ?>');
+		</script>
+
 		<meta charset="<?php bloginfo( 'charset' ); ?>" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -22,30 +32,21 @@
 		<!-- theme style settings -->
 		<style>
 			<?php 
-				$bg_color = get_option(bg_color); 
-				if(!$bg_color) $bg_color = '#000';
-
-				$headline_color = get_option(headline_color); 
-				if(!$headline_color) $headline_color = '#fff';
-
-				$body_color = get_option(fff); 
-				if(!$body_color) $body_color = '#000';
+				$siteLogo = get_field('site_logo', 'option');
+				$bodyfont = get_field('body_font', 'option');
+				$webSafeFont = $bodyfont['web_safe_font'];
 			?>
-			body {background-color: <?php echo $bg_color; ?>;}
-			h1   {color: <?php echo $headline_color; ?>;}
-			p    {color: <?php echo $body_color; ?>;}
+			body {
+				background-color: <?php echo get_field('bg_color', 'option'); ?>;
+				color: <?php echo get_field('body_text_color', 'option'); ?>;
+				font-family: <?php echo $webSafeFont ; ?>;
+			}
 		</style>
 	</head>
-	<body <?php body_class(); ?>>
+	<body <?php body_class(); ?>>	
 	<header>
 		<a href="/" class="nav-logo">
-			<?php 
-				$nav_logo = get_option('logo'); 
-				if(!$nav_logo) {
-					$nav_logo = $template_uri .'/img/site_logo.jpg';
-				}
-			?>
-			<img src="<?php echo $nav_logo; ?>" alt="Matt Brookens Logo"/>
+			<img src="<?php echo $siteLogo['image']; ?>" alt="<?php echo $siteLogo['alt_text']; ?>"/>
 		</a>
 		<nav>
 			<div class="nav-btns">
