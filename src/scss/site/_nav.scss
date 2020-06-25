@@ -228,8 +228,8 @@ header
 .nav-btn,
 .social-btn
 {
-    color: $color-1;
-    background-color: $color-2;
+    color: $color-light;
+    background-color: $color-dark;
 
     &:link,
     &:visited,
@@ -244,9 +244,9 @@ header
         {
             text-decoration: none;
 
-            color: $color-1;
+            color: $color-light;
             background: linear-gradient(90deg,#f00, #ff9c00, #fff000,#0cff00,#0048ff,#6c00ff);
-            text-shadow: 1px 1px 4px $color-2;
+            text-shadow: 1px 1px 4px $color-dark;
         }
     }
 }

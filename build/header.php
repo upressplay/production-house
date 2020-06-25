@@ -94,6 +94,18 @@
 				color:<?php echo $navFont['roll_color']; ?>;
 				background-color:<?php echo $navFont['color']; ?>;	
 			}
+
+			.wpforms-submit {
+				<?php echo $navFont['font_family']; ?> !important;
+				color:<?php echo $navFont['color']; ?> !important;
+				background-color:<?php echo $navFont['roll_color']; ?> !important;	
+				border:none !important;	
+			}
+			.wpforms-submit:hover {
+				color:<?php echo $navFont['roll_color']; ?> !important;
+				background-color:<?php echo $navFont['color']; ?> !important;	
+				border:none !important;	
+			}
 		</style>
 		<!-- theme style settings -->
 	</head>

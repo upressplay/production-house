@@ -8,8 +8,8 @@
 
     padding: rem(50) rem(50);
 
-    color: $color-2;
-    background-color: $color-1;
+    color: $color-dark;
+    background-color: $color-light;
 
     flex-flow: wrap;
     @include bp-medium

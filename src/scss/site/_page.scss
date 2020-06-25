@@ -244,7 +244,7 @@
     text-align: center;
     letter-spacing: rem(2);
 
-    color: $color-1;
+    color: $color-light;
 
     @include bp-medium
     {
@@ -273,21 +273,21 @@
         &:visited,
         &:active
         {
-            color: $color-1;
-            background-color: $color-2;
+            color: $color-light;
+            background-color: $color-dark;
         }
         &:hover
         {
-            color: $color-2;
-            background-color: $color-1;
+            color: $color-dark;
+            background-color: $color-light;
         }
         &.rainbow
         {
             &:hover
             {
-                color: $color-1;
+                color: $color-light;
                 background: linear-gradient(90deg,#f00, #ff9c00, #fff000,#0cff00,#0048ff,#6c00ff);
-                text-shadow: 1px 1px 4px $color-2;
+                text-shadow: 1px 1px 4px $color-dark;
             }
         }
     }
@@ -527,7 +527,7 @@
 
             padding: 0 rem(40) rem(40) rem(40);
 
-            color: $color-1;
+            color: $color-light;
 
             @include bp-medium
             {
@@ -696,11 +696,11 @@
     }
     .page-content
     {
-        color: $color-1;
-        background-color: $color-2;
+        color: $color-light;
+        background-color: $color-dark;
         p
         {
-            color: $color-1;
+            color: $color-light;
         }
     }
     .date
@@ -872,7 +872,7 @@
             transition: all .3s;
 
             opacity: .4;
-            color: $color-1;
+            color: $color-light;
 
             @include bp-medium
             {
@@ -889,7 +889,7 @@
             &:hover
             {
                 opacity: .8;
-                color: $color-1;
+                color: $color-light;
             }
         }
     }
@@ -909,7 +909,7 @@
 
     cursor: pointer;
 
-    background-color: $color-1;
+    background-color: $color-light;
 
     flex-wrap: nowrap;
     justify-content: center;
@@ -927,7 +927,7 @@
 
         transition: all .3s;
 
-        color: $color-2;
+        color: $color-dark;
 
         @include bp-medium
         {
@@ -956,7 +956,7 @@
             background-color: transparent;
             .share-btn
             {
-                color: $color-1;
+                color: $color-light;
 
                 &:hover
                 {
@@ -978,7 +978,7 @@
 
     text-align: center;
 
-    background-color: $color-1;
+    background-color: $color-light;
 
     justify-content: center;
     @include bp-medium
@@ -997,7 +997,7 @@
 
         transition: all .3s;
 
-        color: $color-2;
+        color: $color-dark;
 
         @include bp-medium
         {
@@ -1012,7 +1012,7 @@
         {
             text-decoration: none;
 
-            color: $color-2;
+            color: $color-dark;
         }
 
         &:hover
@@ -1026,7 +1026,7 @@
         {
             text-decoration: none;
 
-            color: $color-2;
+            color: $color-dark;
         }
     }
 }
