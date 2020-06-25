@@ -3,11 +3,13 @@
 	$playlist = get_field('youtube_playlist');
 	$vimeoid = get_field('vimeo_vidid');
 	$vidFile = get_field('video_file');
+	$header = get_the_post_thumbnail_url($post->ID, "header");
+	if($header == "") {
+		$header = $defaultHeader;	
+	} 
 ?>
-<?php if ( has_post_thumbnail() ) : ?>
-	<div class="header-img img-loader" data-img="<?php the_post_thumbnail_url('header'); ?>"></div>
-<?php endif; ?>
-<h1 class="section-title"> <?php the_title(); ?> </h1>
+<div class="header-img img-loader" data-img="<?php echo $header; ?>"></div>
+<h1 class="section-title headline-font"> <?php the_title(); ?> </h1>
 <?php include('social.php'); ?>
 <article class="page-content">
 	

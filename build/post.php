@@ -1,5 +1,6 @@
 <?php
 	$link = get_permalink($post->ID);
+	$target = "_self";
 	$title = get_the_title($post->ID);	
 	$date = get_the_date('M d, Y', $post->ID);	
 	$body = get_the_content($post->ID);
@@ -11,9 +12,9 @@
 	$playlist = get_field('youtube_playlist');
 	$vimeoid = get_field('vimeo_vidid');
 	$vidFile = get_field('video_file');
+	$urlOverride = get_field('url_override');
 
 	$thumb = get_the_post_thumbnail_url( $post->ID, $thumb_size );
-	//$img = get_the_post_thumbnail_url( $post->ID );
 
 	$headerImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "header" );
 	$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "large" );
@@ -21,14 +22,20 @@
 
 	if($thumb_size == 'tall') {
 		$page_poster = get_field('page_poster');
-		$thumb = $page_poster['sizes']['medium'];
+		$thumb = $page_poster['sizes']['tall'];
 	}
 
 ?>
 
 <?php if($show_link) : ?>
-	<a href="<?php echo $link; ?>" data-postid="<?php echo $post->ID; ?>" class="<?php echo $cat; ?> post" >	
+	<?php if($urlOverride) : ?>
+		<a href="<?php echo $urlOverride['url']; ?>" target="<?php echo $urlOverride['target']; ?>" class="post" >	
+	<?php else: ?>
+		<a href="<?php echo $link; ?>" data-postid="<?php echo $post->ID; ?>" class="<?php echo $cat; ?> post" >	
+	<?php endif; ?>
 <?php endif; ?>
+
+
 
 <div class="thumb <?php echo $thumb_layout;?>" >
 <?php if($show_img) : ?>
@@ -73,7 +80,7 @@
 			<figure>
 				<figcaption>
 					<div class="title"><?php echo $title;?></div>
-					<div class="date"><?php echo $date;?></div>
+					<div class="excerpt"><?php echo $summary; ?></div>
 				</figcaption>
 			</figure>
 		</div>
@@ -84,7 +91,6 @@
 		<figure>
 				<figcaption>
 					<div class="title"><?php echo $title;?></div>
-					<div class="date"><?php echo $date;?></div>
 					<div class="excerpt"><?php echo $summary; ?></div>
 				</figcaption>
 			</figure>

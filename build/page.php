@@ -13,10 +13,13 @@
 			$page_poster = get_field('page_poster');
 			$content = get_the_content();
 			$cats = get_categories();
-			
-			if ( has_post_thumbnail() ) : ?>
-				<div class="header-img img-loader" data-img="<?php echo  get_the_post_thumbnail_url($post->ID, "header");?>"></div> 
-			<?php endif; ?>
+
+			$header = get_the_post_thumbnail_url($post->ID, "header");
+			if($header == "") {
+				$header = $defaultHeader;	
+			} 
+			?>
+			<div class="header-img img-loader" data-img="<?php echo $header; ?>"></div> 
 			<?php if( !is_front_page() ) : ?>
 				<h1 class="section-title"> <?php echo get_the_title(); ?> </h1>	
 			<?php endif; ?>
@@ -42,7 +45,7 @@
 					<div class="links"> 
 						<?php while( have_rows('page_links') ) :
 							the_row(); ?>
-							<a href="<?php echo get_sub_field('page_link'); ?>" target="_blank" class="pageLink"> 
+							<a href="<?php echo get_sub_field('page_link'); ?>" target="_blank" class="headline-font"> 
 							<?php echo get_sub_field('page_link_txt'); ?>
 							</a>
 						<?php endwhile; ?>
@@ -53,11 +56,9 @@
 			    </div><!-- .info -->
 
 				<?php else: ?>
-			    <?php if(!empty_content($content)) : ?>
 		    		<div class="page-content"> 
-		    			<?php echo $content; ?> 
+		    			<?php the_content(); ?> 
 		    		</div><!-- page-content -->
-				<?php endif; ?>
 		    	
 			<?php endif; ?>
 			 

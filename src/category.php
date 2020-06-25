@@ -4,8 +4,8 @@
     $cat_name = $cat[0]->name;
 ?>
 
-<div class="header-img img-loader" data-img="/wp-content/uploads/2020/05/eo_header_logo-1600x600.jpg"></div> 
-<h1 class="section-title"> <?php echo $cat_name; ?> </h1>	
+<div class="header-img img-loader" data-img="<?php echo $defaultHeader; ?>"></div> 
+<h1 class="section-title headline-font"> <?php echo $cat_name; ?> </h1>	
 <div class="category">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php 
@@ -19,7 +19,7 @@
     $thumb_size = 'rect';
     $thumb_layout = "vert";
    if($cat_name == "News") {
-       $thumb_size = 'sq';
+       $thumb_size = 'rect';
        $thumb_layout = "horz";	
    }
 
@@ -42,6 +42,11 @@
        $show_body = true;
        $show_summary = false;
    }
+   if($cat_name == "Videos") {
+        $show_date = false;
+        $show_body = false;
+        $show_summary = false;
+    }
    include( locate_template( 'post.php', false, false ) ); 
 ?>
 <?php endwhile; endif; ?>

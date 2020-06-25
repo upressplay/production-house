@@ -51,12 +51,10 @@ header
 
         transition: top .5s ease-in-out;
 
-        background-color: #000;
-
         @include bp-medium
         {
             top: rem(18);
-            right: rem(18);
+            right: rem(0);
 
             flex-direction: row;
 
@@ -64,8 +62,9 @@ header
             height: auto;
             padding-top: 0;
 
+            background-color: transparent   ;
+
             flex-wrap: nowrap;
-            background-color: #000;
         }
         @include bp-large
         {
@@ -85,6 +84,7 @@ header
             display: flex;
             flex-direction: column;
 
+            align-items: center;
             flex-wrap: wrap;
             @include bp-medium
             {
@@ -95,18 +95,23 @@ header
         }
         .social-btns
         {
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
 
             width: 100%;
             padding-top: rem(40);
 
-            text-align: center;
-            vertical-align: top;
-
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
             @include bp-medium
             {
+                flex-direction: row;
+
                 width: auto;
                 padding-top: 0;
+
+                flex-wrap: nowrap;
             }
             @include bp-large
             {
@@ -163,6 +168,7 @@ header
     font-family: $nav-font;
     font-size: rem(70);
     font-weight: normal;
+    line-height: rem(70);
 
     display: inline-block;
 
@@ -171,25 +177,22 @@ header
 
     text-align: center;
     vertical-align: middle;
-    letter-spacing: rem(1);
 
     @include bp-medium
     {
         font-size: rem(19);
+        line-height: rem(19);
 
         width: auto;
         padding: rem(16);
-
-        letter-spacing: rem(1);
     }
     @include bp-large
     {
         font-size: rem(24);
+        line-height: rem(24);
 
         width: auto;
         padding: rem(20);
-
-        letter-spacing: rem(1);
     }
 }
 
@@ -197,6 +200,7 @@ header
 {
     font-size: rem(70);
     font-weight: normal;
+    line-height: rem(70);
 
     display: inline-block;
 
@@ -208,14 +212,16 @@ header
     @include bp-medium
     {
         font-size: rem(22);
+        line-height: rem(22);
 
-        padding: rem(16) rem(8);
+        padding: rem(15) rem(16);
     }
     @include bp-large
     {
         font-size: rem(30);
+        line-height: rem(31);
 
-        padding: rem(20) rem(10);
+        padding: rem(16.5) rem(20);
     }
 }
 
@@ -225,61 +231,15 @@ header
     color: $color-1;
     background-color: $color-2;
 
-    &:link
-    {
-        text-decoration: none;
-
-        color: $color-1;
-        background-color: $color-2;
-    }
-
-    &:visited
-    {
-        text-decoration: none;
-
-        color: $color-1;
-        background-color: $color-2;
-    }
-
-    &:hover
-    {
-        text-decoration: none;
-
-        color: $color-2;
-        background-color: $color-1;
-    }
-
+    &:link,
+    &:visited,
+    &:hover,
     &:active
     {
         text-decoration: none;
-
-        color: $color-1;
-        background-color: $color-2;
     }
     &.rainbow
     {
-        text-decoration: none;
-        letter-spacing: rem(2);
-
-        color: $color-1;
-        background-color: $color-2;
-
-        &:link
-        {
-            text-decoration: none;
-
-            color: $color-1;
-            background-color: $color-2;
-        }
-
-        &:visited
-        {
-            text-decoration: none;
-
-            color: $color-1;
-            background-color: $color-2;
-        }
-
         &:hover
         {
             text-decoration: none;
@@ -287,14 +247,6 @@ header
             color: $color-1;
             background: linear-gradient(90deg,#f00, #ff9c00, #fff000,#0cff00,#0048ff,#6c00ff);
             text-shadow: 1px 1px 4px $color-2;
-        }
-
-        &:active
-        {
-            text-decoration: none;
-
-            color: $color-1;
-            background-color: $color-2;
         }
     }
 }

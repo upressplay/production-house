@@ -226,11 +226,21 @@ function copyPages() { //copy all html and php files over
 function watchFiles(){ //watch for changes to HTML, CSS, SASS and javascript files and automatically process them
 	gulp.watch(['src/scss/**/*.scss','src/css/**/*.css', '!src/css/generated/**/*'], gulp.series(styles));
 	gulp.watch(['src/js/**/*.js'], gulp.series(scripts));
-	gulp.watch(['src/**/*.(html|php)'], gulp.series(pages));
+	gulp.watch(['src/**/*.(html|php)','!src/includes/'], gulp.series(pages));
 	gulp.watch(['src/**/*.json'], gulp.series(data));
 }
 
+function theme() {
+	return gulp
+	.src(['src/screenshot.jpg','src/style.css'], {allowEmpty : true })
+    .pipe(gulp.dest('build'));
+}
 
+function plugins() {
+	return gulp
+	.src(['src/includes/**/*','src/includes/**/*.*'])
+    .pipe(gulp.dest('build/includes'));
+}
 
 const pages = gulp.series(
 	htmlHint, //make sure the html validates before trying to copy it
@@ -255,7 +265,7 @@ const watch = gulp.parallel(
 
 const build = gulp.series(
 	clean,
-	gulp.parallel(styles, scripts, images, fonts, media, pages, data)
+	gulp.parallel(styles, scripts, images, fonts, media, pages, data, theme, plugins)
 );
 
 const develop = gulp.series(

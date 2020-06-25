@@ -1,14 +1,11 @@
 body
 {
-    font-family: $body-font;
-
     overflow-x: hidden;
 
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
-
 }
 html
 {
@@ -36,6 +33,7 @@ html
         width: 100vw;
         min-height: 100vh;
 
+        scroll-behavior: smooth;
         @include bp-medium
         {
         }
