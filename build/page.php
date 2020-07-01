@@ -12,7 +12,6 @@
 			$section_link = get_sub_field('section_page');
 			$page_poster = get_field('page_poster');
 			$content = get_the_content();
-			$cats = get_categories();
 
 			$header = get_the_post_thumbnail_url($post->ID, "header");
 			if($header == "") {

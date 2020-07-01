@@ -1,7 +1,5 @@
 <?php 
     get_header(); 
-    $cat = get_the_category();
-    $cat_name = $cat[0]->name;
 ?>
 
 <div class="header-img img-loader" data-img="<?php echo $defaultHeader; ?>"></div> 

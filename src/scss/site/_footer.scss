@@ -1,6 +1,5 @@
 #footer
 {
-    font-family: 'Khula', sans-serif;
     font-size: rem(18);
     font-weight: 400;
 
@@ -9,8 +8,6 @@
 
     text-align: center;
 
-    color: #fff;
-    background-color: #000;
 
     @include bp-medium
     {
@@ -26,66 +23,6 @@
     }
 }
 
-#footer a:link
-{
-    text-decoration: none;
 
-    color: #b6b6b6;
 
-    @include bp-medium
-    {
-        color: #b6b6b6;
-    }
-    @include bp-large
-    {
-        color: #b6b6b6;
-    }
-}
 
-#footer a:visited
-{
-    text-decoration: none;
-
-    color: #b6b6b6;
-
-    @include bp-medium
-    {
-        color: #b6b6b6;
-    }
-    @include bp-large
-    {
-        color: #b6b6b6;
-    }
-}
-
-#footer a:hover
-{
-    text-decoration: underline;
-
-    color: #fff;
-
-    @include bp-medium
-    {
-        color: #fff;
-    }
-    @include bp-large
-    {
-        color: #fff;
-    }
-}
-
-#footer a:active
-{
-    text-decoration: none;
-
-    color: #b6b6b6;
-
-    @include bp-medium
-    {
-        color: #b6b6b6;
-    }
-    @include bp-large
-    {
-        color: #b6b6b6;
-    }
-}

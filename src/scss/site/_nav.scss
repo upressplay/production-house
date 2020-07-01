@@ -10,7 +10,8 @@ header
         width: rem(150);
         height: rem(150);
 
-        border: rem(2) solid #000;
+        border-width: rem(2);
+        border-style: solid;
 
         @include bp-medium
         {
@@ -20,7 +21,7 @@ header
             width: rem(130);
             height: rem(130);
 
-            border: rem(2) solid #000;
+            border-width: rem(2);
         }
         @include bp-large
         {
@@ -30,7 +31,7 @@ header
             width: rem(130);
             height: rem(130);
 
-            border: rem(2) solid #000;
+            border-width: rem(2);
         }
     }
     nav

@@ -41,18 +41,37 @@
 			if($navFont['font_link'] != "") {
 				echo $navFont['font_link'];
 			}
+			global $footer;
+			$footer = get_field('footer_font', 'option');
+			if($footer['font_link'] != "") {
+				echo $footer['font_link'];
+			}
 			global $defaultHeader;
 			$defaultHeader = get_field('default_header', 'option')['sizes']['header'];
+			$categoryHeaders = get_field('category_headers', 'option');
+			global $cat;
+			$cat = get_the_category();
+			global $cat_name;
+			$cat_name = $cat[0]->name;
 
-			
+			foreach ($categoryHeaders as &$header) {
+				if($cat[0]->term_id == $header['category'][0]) {
+					$defaultHeader = $header['image']['sizes']['header'];	
+				}
+			}
 		?>
 		
 		<style>
 			
-			body {
+			body 
+			{
 				background-color: <?php echo get_field('bg_color', 'option'); ?>;
 				color: <?php echo $bodyFont['color']; ?>;
 				<?php echo $bodyFont['font_family']; ?>;
+			}
+			.nav-logo 
+			{
+				border-color:<?php echo $siteLogo['border_color']; ?>
 			}
 			.section-title,
 			.section-title-link,
@@ -62,16 +81,20 @@
 				font-weight: <?php echo $headlineFont['font_weight'] ?>;
 				color: <?php echo $headlineFont['color']; ?>;
 			}
-			.section-title-link:hover {
+			.section-title-link:hover 
+			{
 				color:<?php echo $headlineFont['roll_color']; ?>;
 				background-color:<?php echo $headlineFont['color']; ?>;
 			}
-			.thumb .info .title {
+			.thumb .info .title,
+			.page-content figure figcaption 
+			{
 				<?php echo $subFont['font_family']; ?>;
 				font-weight: <?php echo $subFont['font_weight'] ?>;
 				color: <?php echo $subFont['color']; ?>;
 			}
-			nav {
+			nav 
+			{
 				background-color:<?php echo $navFont['roll_color']; ?>;
 			}
 			.nav-btn,
@@ -95,16 +118,38 @@
 				background-color:<?php echo $navFont['color']; ?>;	
 			}
 
-			.wpforms-submit {
+			.wpforms-submit 
+			{
 				<?php echo $navFont['font_family']; ?> !important;
 				color:<?php echo $navFont['color']; ?> !important;
 				background-color:<?php echo $navFont['roll_color']; ?> !important;	
 				border:none !important;	
 			}
-			.wpforms-submit:hover {
+			.wpforms-submit:hover 
+			{
 				color:<?php echo $navFont['roll_color']; ?> !important;
 				background-color:<?php echo $navFont['color']; ?> !important;	
 				border:none !important;	
+			}
+
+			#footer 
+			{
+				background-color:<?php echo $footer['background_color']; ?>;
+			}
+			#footer,
+			#footer a:link,
+			#footer a:visited,
+			#footer a:active
+			{
+				text-decoration: none;
+
+				color:<?php echo $footer['color']; ?>;
+			}
+			#footer a:hover
+			{
+				text-decoration: underline;
+
+				color:<?php echo $footer['roll_color']; ?>;
 			}
 		</style>
 		<!-- theme style settings -->
