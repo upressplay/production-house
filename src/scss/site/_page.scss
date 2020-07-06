@@ -19,6 +19,11 @@
         width: rem(1600);
         height: rem(600);
     }
+    picture
+    {
+        width:100%;
+        height:100%;
+    }
     img
     {
         width: auto;
@@ -155,11 +160,11 @@
 
 .page-content
 {
-    width: 100vw;
     font-size: rem(28);
     line-height: rem(44);
 
     box-sizing: border-box;
+    width: 100vw;
     padding: rem(50);
 
     color: #000;
@@ -179,8 +184,15 @@
 
         padding: rem(40) rem(150);
     }
+
     figure
     {
+        width: 100%;
+
+        @include bp-medium
+        {
+            width: auto;
+        }
         figcaption
         {
             font-size: rem(28);
@@ -502,7 +514,6 @@
             line-height: rem(60);
 
             padding: rem(30) rem(50);
-
 
             @include bp-medium
             {

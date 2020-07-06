@@ -17,8 +17,16 @@
 			if($header == "") {
 				$header = $defaultHeader;	
 			} 
+			$headerMobile =  get_field('mobile_header_image')['sizes']['header-mobile'];
 			?>
-			<div class="header-img img-loader" data-img="<?php echo $header; ?>"></div> 
+			
+			<div class="header-img" data-img="<?php echo $header; ?>" data-img-mobile="<?php echo $headerMobile; ?>" data-title="Header Image">
+				<picture>
+					<source srcset="mdn-logo-wide.png" media="(min-width: 600px)">
+  					<img src="<?php echo $header; ?>" alt="MDN">
+				</picture>
+			</div>
+
 			<?php if( !is_front_page() ) : ?>
 				<h1 class="section-title"> <?php echo get_the_title(); ?> </h1>	
 			<?php endif; ?>
@@ -55,7 +63,8 @@
 			    </div><!-- .info -->
 
 				<?php else: ?>
-		    		<div class="page-content"> 
+					
+		    		<div class="page-content">
 		    			<?php the_content(); ?> 
 		    		</div><!-- page-content -->
 		    	

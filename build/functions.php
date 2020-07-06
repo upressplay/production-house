@@ -1,6 +1,7 @@
 <?php
 
 add_image_size( 'header', 1600, 600, array( 'top', 'center' ) );
+add_image_size( 'header-mobile', 750, 400, array( 'top', 'center' ) );
 add_image_size( 'rect', 400, 200, array( 'center', 'center' ) );
 add_image_size( 'sq', 400, 400, array( 'center', 'center' ) );
 add_image_size( 'sqsm', 200, 200, array( 'center', 'center' ) );

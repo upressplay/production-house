@@ -42,12 +42,13 @@
 				echo $navFont['font_link'];
 			}
 			global $footer;
-			$footer = get_field('footer_font', 'option');
+			$footer = get_field('footer', 'option');
 			if($footer['font_link'] != "") {
 				echo $footer['font_link'];
 			}
 			global $defaultHeader;
-			$defaultHeader = get_field('default_header', 'option')['sizes']['header'];
+			$defaultHeader = get_field('default_header', 'option')['image']['sizes']['header'];
+			$defaultMobileHeader = get_field('default_header', 'option')['mobile_image']['sizes']['header'];
 			$categoryHeaders = get_field('category_headers', 'option');
 			global $cat;
 			$cat = get_the_category();
@@ -57,6 +58,7 @@
 			foreach ($categoryHeaders as &$header) {
 				if($cat[0]->term_id == $header['category'][0]) {
 					$defaultHeader = $header['image']['sizes']['header'];	
+					$defaultMobileHeader = $header['mobile_image']['sizes']['header-mobile'];	
 				}
 			}
 		?>
@@ -86,12 +88,16 @@
 				color:<?php echo $headlineFont['roll_color']; ?>;
 				background-color:<?php echo $headlineFont['color']; ?>;
 			}
-			.thumb .info .title,
-			.page-content figure figcaption 
+			.thumb .info .title
 			{
 				<?php echo $subFont['font_family']; ?>;
 				font-weight: <?php echo $subFont['font_weight'] ?>;
 				color: <?php echo $subFont['color']; ?>;
+			}
+			.page-content figure figcaption 
+			{
+				<?php echo $subFont['font_family']; ?>;
+				font-weight: <?php echo $subFont['font_weight'] ?>;
 			}
 			nav 
 			{
@@ -165,11 +171,12 @@
 				$menu_items = wp_get_nav_menu_items( 'Main Menu' );
 				foreach ( (array) $menu_items as $key => $menu_item ) :
 				   	$title = $menu_item->title;
-				    $url = $menu_item->url;
+					$url = $menu_item->url;
+					$target = $menu_item->target;
 				    $attr_title = $menu_item->attr_title;
 				    $btn_class = "nav-btn";
 				    if($attr_title == $segments[0]) $btn_class = $btn_class . " active"; ?>
-					<a href="<?php echo $url; ?>" class="<?php echo $btn_class; ?>"><?php echo $title; ?></a>
+					<a href="<?php echo $url; ?>" class="<?php echo $btn_class; ?>" target="<?php echo $target; ?>"><?php echo $title; ?></a>
 					
 			<?php endforeach; ?>
 			</div>
