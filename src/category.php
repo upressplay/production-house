@@ -2,7 +2,7 @@
     get_header(); 
 ?>
 
-<div class="header-img img-loader" data-img="<?php echo $defaultHeader; ?>"></div> 
+<div class="header-img img-loader" data-img="<?php echo $defaultHeader; ?>" data-img-mobile="<?php echo $defaultMobileHeader; ?>" data-title="<?php echo $cat_name; ?>"></div> 
 <h1 class="section-title headline-font"> <?php echo $cat_name; ?> </h1>	
 <div class="category">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -16,12 +16,12 @@
     $show_summary = true;
     $thumb_size = 'rect';
     $thumb_layout = "vert";
-   if($cat_name == "News") {
+   if($cat_name == "News" || $cat_name == "Writing" || $cat_name == "Blog") {
        $thumb_size = 'rect';
        $thumb_layout = "horz";	
    }
 
-   if($cat_name == "Gallery") {
+   if($cat_name == "Gallery" || $cat_name == "Photography") {
        $thumb_size = 'sqsm';
        $thumb_layout = "sm";
        $show_title = false;

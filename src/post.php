@@ -17,6 +17,7 @@
 	$thumb = get_the_post_thumbnail_url( $post->ID, $thumb_size );
 
 	$headerImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "header" );
+	$headerMobileImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "mobile_image" );
 	$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "large" );
 	$hires = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "full" );
 
@@ -41,24 +42,24 @@
 <?php if($show_img) : ?>
 	<div class="<?php echo $thumb_size;?> img-loader" data-img="<?php echo $thumb; ?>" data-title="<?php echo $title;?>"></div>
 <?php endif; ?>
-<?php if($show_title || $show_date || $show_body || $show_summary) : ?>
-	<div class="info">	
-	<?php if($show_title) : ?>
-		<h3 class="title"><?php echo $title; ?>	
+
+<?php if($show_title) : ?>
+		<h3 class="title"><?php echo $title; ?>	</h3>
 	<?php endif; ?>
 	<?php if($show_date) : ?>
-		<div class="date"><?php echo $date;?></div>	
+		<p class="date"><?php echo $date;?></p>	
 	<?php endif; ?>
 	<?php if($show_title) : ?>
-		</h3><!-- pageThumbTitle -->	
+		
 	<?php endif;?>
 	<?php if($show_body) : ?>
-		<div class="excerpt"><?php echo $body; ?></div>	
+		<p class="excerpt"><?php echo $body; ?></p>	
 	<?php endif; ?>
 	<?php if($show_summary) : ?>
-		<div class="excerpt"><?php echo $summary;?></div>
+		<p class="excerpt"><?php echo $summary;?></p>
 	<?php endif; ?>
-	</div><!-- pageThumbInfo -->
+<?php if($show_title || $show_date || $show_body || $show_summary) : ?>
+	
 	<?php endif; ?>
 
 </div><!-- pageThumb -->
@@ -68,14 +69,14 @@
 <div id="post-<?php echo $post->ID;?>" class="post-content" data-img="<?php echo $img[0];?>" data-img-w="<?php echo $img[1];?>" data-img-h="<?php echo $img[2]; ?>" data-header="<?php echo $headerImg[0]; ?>" data-hires="<?php echo $hires[0];?>" data-vidid="<?php echo $vidid;?>" data-vimeoid="<?php echo $vimeoid; ?>" data-vidfile="<?php echo $vidFile; ?>" data-playlist="<?php echo $playlist;?>" data-cat="<?php echo $cat;?>">
 	
 	
-	<?php if($cat == "news") :?>
+	<?php if($cat == "news" || $cat == "writing" || $cat == "blog") :?>
 		<div class="post-header-img"></div>
 		<div class="section-title"><?php echo $title;?></div>
 		<div class="date"><?php echo $date;?></div>	
 		<div class="page-content"><?php echo $body; ?></div>
 	<?php endif; ?>
 
-	<?php if($cat == "gallery") :?>
+	<?php if($cat == "gallery" || $cat == "photography") :?>
 		<div class="holder">
 			<figure>
 				<figcaption>
@@ -96,8 +97,6 @@
 			</figure>
 		</div>
 	<?php endif; ?>
-	
-
 
 	<div data-id="<?php echo $post->ID; ?>" class="close ui fas fa-times-circle"></div>
 	

@@ -18,14 +18,13 @@
 				$header = $defaultHeader;	
 			} 
 			$headerMobile =  get_field('mobile_header_image')['sizes']['header-mobile'];
+
+			if($headerMobile == "") {
+				$headerMobile = get_the_post_thumbnail_url($post->ID, "header-mobile");	
+			}
 			?>
 			
-			<div class="header-img" data-img="<?php echo $header; ?>" data-img-mobile="<?php echo $headerMobile; ?>" data-title="Header Image">
-				<picture>
-					<source srcset="mdn-logo-wide.png" media="(min-width: 600px)">
-  					<img src="<?php echo $header; ?>" alt="MDN">
-				</picture>
-			</div>
+			<div class="header-img img-loader" data-img="<?php echo $header; ?>" data-img-mobile="<?php echo $headerMobile; ?>" data-title="Header Image"></div>
 
 			<?php if( !is_front_page() ) : ?>
 				<h1 class="section-title"> <?php echo get_the_title(); ?> </h1>	
@@ -33,45 +32,36 @@
 
 			
 			<div class="page-header">
+
+				<div class="page-content"><?php the_content(); ?></div><!-- page-content -->
 			
-		    <?php if($page_poster != "" || have_rows('page_links') ) :
-		    	if(!empty_content($content)) : ?>
-			    	<div class="page-content">
-			    		<?php echo $content; ?> 
-			    	</div><!-- page-content -->
-			<?php endif; ?>
+				<?php if($page_poster != "" || have_rows('page_links') ) : ?>
 
-		    	<div class="info">
-				<?php if($page_poster != "") : ?>
-					<a href="<?php echo $page_poster['sizes']['large']; ?>" class="poster" target="_blank"> 
-						<img src="<?php echo $page_poster['sizes']['medium'];?>">
-					</a>
-				<?php endif; ?>
-				
-				<?php if( have_rows('page_links') ) :	?>	
-					<div class="links"> 
-						<?php while( have_rows('page_links') ) :
-							the_row(); ?>
-							<a href="<?php echo get_sub_field('page_link'); ?>" target="_blank" class="headline-font"> 
-							<?php echo get_sub_field('page_link_txt'); ?>
-							</a>
-						<?php endwhile; ?>
-			    	</div>
-				<?php endif; ?>
-				
-				<?php include('social.php'); ?>
-			    </div><!-- .info -->
-
-				<?php else: ?>
+					<div class="info">
+					<?php if($page_poster != "") : ?>
+						<a href="<?php echo $page_poster['sizes']['large']; ?>" class="poster" target="_blank"> 
+							<img src="<?php echo $page_poster['sizes']['medium'];?>">
+						</a>
+					<?php endif; ?>
 					
-		    		<div class="page-content">
-		    			<?php the_content(); ?> 
-		    		</div><!-- page-content -->
-		    	
-			<?php endif; ?>
+					<?php if( have_rows('page_links') ) :	?>	
+						<div class="links"> 
+							<?php while( have_rows('page_links') ) :
+								the_row(); ?>
+								<a href="<?php echo get_sub_field('page_link'); ?>" target="_blank" class="headline-font"> 
+								<?php echo get_sub_field('page_link_txt'); ?>
+								</a>
+							<?php endwhile; ?>
+						</div>
+					<?php endif; ?>
+					
+					<?php include('social.php'); ?>
+					</div><!-- .info -->					
+					
+				<?php endif; ?>
 			 
 		   
-			</div><!-- pageHeader --> 
+			</div><!-- page-header --> 
 
 			<?php 
 				if( is_page('resume')) : 

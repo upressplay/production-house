@@ -8,7 +8,7 @@
                 "label": "Icon Class",
                 "name": "icon_class",
                 "type": "text",
-                "instructions": "Add font awesome css values here. Find new ones here. https:\/\/fontawesome.com\/icons?d=gallery&m=free",
+                "instructions": "Add font awesome css values here. Find new ones here. https:\/\/fontawesome.com\/icons?d=gallery&m=free Examples: fab fa-youtube - fab fa-twitter - fab fa-instagram - fab fa-imdb - fab fa-vimeo-v - fab fa-facebook-square",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -28,7 +28,7 @@
                 {
                     "param": "nav_menu_item",
                     "operator": "==",
-                    "value": "18"
+                    "value": "8"
                 }
             ]
         ],

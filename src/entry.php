@@ -3,7 +3,6 @@
 	if($header == "") {
 		$header = $defaultHeader;	
 	} 
-	?>
 ?>
 <div class="header-img img-loader" data-img="<?php echo $header; ?>"></div>
 <h1 class="section-title headline-font"> <?php the_title(); ?> </h1>

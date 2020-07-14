@@ -48,7 +48,9 @@
 			}
 			global $defaultHeader;
 			$defaultHeader = get_field('default_header', 'option')['image']['sizes']['header'];
+			global $defaultMobileHeader;
 			$defaultMobileHeader = get_field('default_header', 'option')['mobile_image']['sizes']['header'];
+
 			$categoryHeaders = get_field('category_headers', 'option');
 			global $cat;
 			$cat = get_the_category();
@@ -71,24 +73,42 @@
 				color: <?php echo $bodyFont['color']; ?>;
 				<?php echo $bodyFont['font_family']; ?>;
 			}
+			.thumb .date {
+				color: <?php echo $bodyFont['color']; ?>;
+				<?php echo $bodyFont['font_family']; ?>;	
+			}
 			.nav-logo 
 			{
 				border-color:<?php echo $siteLogo['border_color']; ?>
 			}
+
+			.menu-btn,
+			.close-btn
+			{
+				color:<?php echo get_field('nav_menu_btn', 'option')['color']; ?>;
+				background-color:<?php echo get_field('nav_menu_btn', 'option')['background_color']; ?>;		
+			}
 			.section-title,
 			.section-title-link,
-			figcaption .title
+			.headline-font
 			{	
 				<?php echo $headlineFont['font_family']; ?>;
 				font-weight: <?php echo $headlineFont['font_weight'] ?>;
 				color: <?php echo $headlineFont['color']; ?>;
+			}
+
+			figcaption .title,
+			.headline-font
+			{	
+				<?php echo $headlineFont['font_family']; ?>;
+				font-weight: <?php echo $headlineFont['font_weight'] ?>;
 			}
 			.section-title-link:hover 
 			{
 				color:<?php echo $headlineFont['roll_color']; ?>;
 				background-color:<?php echo $headlineFont['color']; ?>;
 			}
-			.thumb .info .title
+			.thumb .title
 			{
 				<?php echo $subFont['font_family']; ?>;
 				font-weight: <?php echo $subFont['font_weight'] ?>;

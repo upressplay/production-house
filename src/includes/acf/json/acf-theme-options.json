@@ -227,6 +227,53 @@
                 ]
             },
             {
+                "key": "field_5f0361c14b48f",
+                "label": "Nav Menu Button",
+                "name": "nav_menu_btn",
+                "type": "group",
+                "instructions": "Color of the background of the Mobile Menu button.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5f036251c2cdf",
+                        "label": "Color",
+                        "name": "color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "#ffffff"
+                    },
+                    {
+                        "key": "field_5f03625ac2ce0",
+                        "label": "Background Color",
+                        "name": "background_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "#000000"
+                    }
+                ]
+            },
+            {
                 "key": "field_5ee1ad00e0b1f",
                 "label": "Headline Font",
                 "name": "headline_font",
@@ -647,7 +694,7 @@
                 "key": "field_5ef3f456322d2",
                 "label": "Default Header",
                 "name": "default_header",
-                "type": "image",
+                "type": "group",
                 "instructions": "Adding an image here will add an image to any post or page that doesn't have a featured image.",
                 "required": 0,
                 "conditional_logic": 0,
@@ -656,16 +703,57 @@
                     "class": "",
                     "id": ""
                 },
-                "return_format": "array",
-                "preview_size": "medium",
-                "library": "all",
-                "min_width": "",
-                "min_height": "",
-                "min_size": "",
-                "max_width": "",
-                "max_height": "",
-                "max_size": "",
-                "mime_types": ""
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5f02d65457d67",
+                        "label": "Image",
+                        "name": "image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_5f02d65c57d68",
+                        "label": "Mobile Image",
+                        "name": "mobile_image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    }
+                ]
             },
             {
                 "key": "field_5efbe723a5aa0",
@@ -690,6 +778,30 @@
                         "key": "field_5efbe84ea5aa1",
                         "label": "Image",
                         "name": "image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "medium",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_5f02d555b084d",
+                        "label": "Mobile Image",
+                        "name": "mobile_image",
                         "type": "image",
                         "instructions": "",
                         "required": 0,

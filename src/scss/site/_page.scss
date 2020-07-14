@@ -21,7 +21,7 @@
     }
     picture
     {
-        width:100%;
+        width:auto;
         height:100%;
     }
     img
@@ -185,6 +185,10 @@
         padding: rem(40) rem(150);
     }
 
+    &:empty {
+        padding: 0 !important;
+    }
+
     figure
     {
         width: 100%;
@@ -340,8 +344,6 @@
 
 .thumb
 {
-    display: flex;
-    flex-direction: column;
 
     transition: all .35s ease-in-out;
     transform: scale(.9);
@@ -360,10 +362,8 @@
     &.vert
     {
         width: rem(750);
-
+        
         text-align: center;
-        vertical-align: top;
-
         @include bp-medium
         {
             width: rem(317.5);
@@ -372,17 +372,30 @@
         {
             width: rem(400);
         }
+        .rect,
+        .sq,
+        .sqsm {
+            
+            margin: rem(0) rem(0) rem(40) rem(0);
+            @include bp-medium
+            {
+                float:left;
+                margin: rem(0) rem(0) rem(20) rem(0);
+            }
+            @include bp-large
+            {
+                margin: rem(0) rem(0) rem(20) rem(0);
+            }
+        }
     }
 
     &.horz
     {
-        flex-direction: column;
 
         width: rem(750);
 
         @include bp-medium
         {
-            flex-direction: row;
 
             width: rem(635);
 
@@ -393,6 +406,21 @@
             width: rem(800);
 
             text-align: left;
+        }
+        .rect,
+        .sq,
+        .sqsm {
+            
+            margin: rem(0) rem(0) rem(40) rem(0);
+            @include bp-medium
+            {
+                float:left;
+                margin: rem(0) rem(20) rem(20) rem(0);
+            }
+            @include bp-large
+            {
+                margin: rem(0) rem(20) rem(20) rem(0);
+            }
         }
     }
     &.sm
@@ -493,66 +521,38 @@
             width: rem(200);
         }
     }
-    .info
+    
+    .title
     {
-        width: rem(750);
-
-        vertical-align: top;
+        font-family: $post-title-font;
+        font-size: rem(48);
+        line-height: rem(60);
 
         @include bp-medium
         {
-            width: rem(317.5);
+            font-size: rem(36);
+            line-height: rem(42);
         }
         @include bp-large
         {
-            width: rem(400);
+            font-size: rem(36);
+            line-height: rem(42);
         }
-        .title
+    }
+    .excerpt
+    {
+        font-size: rem(24);
+        line-height: rem(33);
+
+        @include bp-medium
         {
-            font-family: $post-title-font;
-            font-size: rem(48);
-            line-height: rem(60);
-
-            padding: rem(30) rem(50);
-
-            @include bp-medium
-            {
-                font-size: rem(30);
-                line-height: rem(36);
-
-                padding: rem(8) rem(16);
-            }
-            @include bp-large
-            {
-                font-size: rem(30);
-                line-height: rem(36);
-
-                padding: rem(10) rem(20);
-            }
+            font-size: rem(13);
+            line-height: rem(22);
         }
-        .excerpt
+        @include bp-large
         {
-            font-size: rem(24);
-            line-height: rem(33);
-
-            padding: 0 rem(40) rem(40) rem(40);
-
-            color: $color-light;
-
-            @include bp-medium
-            {
-                font-size: rem(13);
-                line-height: rem(22);
-
-                padding: 0 rem(16) rem(16) rem(16);
-            }
-            @include bp-large
-            {
-                font-size: rem(16);
-                line-height: rem(28);
-
-                padding: 0 rem(20) rem(20) rem(20);
-            }
+            font-size: rem(14);
+            line-height: rem(28);
         }
     }
 }
@@ -610,99 +610,96 @@
 
         opacity: 1;
     }
-    .holder
+
+    figure
     {
         display: flex;
         flex-direction: column;
 
-        width: 100vw;
-        height: 100vh;
-
-        justify-content: center;
         align-items: center;
-        figure
+        img
         {
-            display: flex;
-            flex-direction: column;
+            width: 90vw;
+            height: auto;
 
-            align-items: center;
-            img
+            @include bp-medium
             {
-                width: 90vw;
-                height: auto;
-
-                @include bp-medium
-                {
-                    width: auto;
-                    height: 70vh;
-                }
-                @include bp-large
-                {
-                    height: 80vh;
-                }
+                width: auto;
+                height: 70vh;
             }
-            .vid
+            @include bp-large
             {
-                width: rem(700);
-                height: rem(393.75);
-
-                text-align: center;
-                vertical-align: middle;
-
-                @include bp-medium
-                {
-                    width: rem(1000);
-                    height: rem(562.5);
-                }
-                @include bp-large
-                {
-                    width: rem(1000);
-                    height: rem(562.5);
-                }
-                video
-                {
-                    outline: none;
-                }
+                height: 80vh;
             }
-            figcaption
-            {
-                margin: rem(20);
+        }
+        .vid
+        {
+            width: rem(700);
+            height: rem(393.75);
 
-                text-align: center;
+            text-align: center;
+            vertical-align: middle;
+
+            @include bp-medium
+            {
+                width: rem(1000);
+                height: rem(562.5);
+            }
+            @include bp-large
+            {
+                width: rem(1000);
+                height: rem(562.5);
+            }
+            video
+            {
+                outline: none;
+            }
+        }
+        figcaption
+        {
+            margin: rem(20);
+            color:#fff;
+
+            text-align: center;
+
+            @include bp-medium
+            {
+                margin: rem(20) 0 rem(20) 0;
+            }
+            @include bp-large
+            {
+                margin: rem(20) 0 rem(20) 0;
+            }
+            .title
+            {
+                font-family: $headline-font;
+                font-size: rem(50);
+                line-height: rem(60);
+
+                margin: 0 0 rem(20) 0;
 
                 @include bp-medium
                 {
-                    margin: rem(20) 0 rem(20) 0;
-                }
-                @include bp-large
-                {
-                    margin: rem(20) 0 rem(20) 0;
-                }
-                .title
-                {
-                    font-family: $headline-font;
-                    font-size: rem(50);
-                    line-height: rem(60);
+                    font-size: rem(36);
+                    line-height: rem(44);
 
                     margin: 0 0 rem(20) 0;
+                }
+                @include bp-large
+                {
+                    font-size: rem(36);
+                    line-height: rem(44);
 
-                    @include bp-medium
-                    {
-                        font-size: rem(36);
-                        line-height: rem(44);
-
-                        margin: 0 0 rem(20) 0;
-                    }
-                    @include bp-large
-                    {
-                        font-size: rem(36);
-                        line-height: rem(44);
-
-                        margin: rem(20)  0 rem(5) 0;
-                    }
+                    margin: rem(20)  0 rem(5) 0;
                 }
             }
         }
+    }
+
+    .section-title,
+    .date
+    {
+        color: $color-light;
     }
     .page-content
     {
@@ -712,6 +709,7 @@
         {
             color: $color-light;
         }
+       
     }
     .date
     {
@@ -719,23 +717,8 @@
     }
     .post-img
     {
-        position: absolute;
-        top: 50%;
-        left: 50%;
 
-        width: 90vw;
 
-        transform: translate(-50%, -50%);
-        text-align: center;
-        vertical-align: middle;
-
-        @include bp-medium
-        {
-            width: rem(1270);
-        }
-        @include bp-large
-        {
-        }
     }
 
     .post-img-tall
