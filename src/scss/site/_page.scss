@@ -21,8 +21,8 @@
     }
     picture
     {
-        width:auto;
-        height:100%;
+        width: auto;
+        height: 100%;
     }
     img
     {
@@ -182,10 +182,11 @@
         font-size: rem(18);
         line-height: rem(36);
 
-        padding: rem(40) rem(150);
+        padding: rem(40) rem(100);
     }
 
-    &:empty {
+    &:empty
+    {
         padding: 0 !important;
     }
 
@@ -266,7 +267,7 @@
         font-size: rem(38);
         line-height: rem(45);
 
-        padding: rem(16);
+        padding: rem(20) rem(100);
 
         letter-spacing: rem(2);
     }
@@ -275,7 +276,7 @@
         font-size: rem(48);
         line-height: rem(55);
 
-        padding: rem(20) rem(200);
+        padding: rem(20) rem(100);
 
         letter-spacing: rem(2);
     }
@@ -344,7 +345,6 @@
 
 .thumb
 {
-
     transition: all .35s ease-in-out;
     transform: scale(.9);
 
@@ -362,8 +362,9 @@
     &.vert
     {
         width: rem(750);
-        
+
         text-align: center;
+
         @include bp-medium
         {
             width: rem(317.5);
@@ -374,12 +375,14 @@
         }
         .rect,
         .sq,
-        .sqsm {
-            
+        .sqsm
+        {
             margin: rem(0) rem(0) rem(40) rem(0);
+
             @include bp-medium
             {
-                float:left;
+                float: left;
+
                 margin: rem(0) rem(0) rem(20) rem(0);
             }
             @include bp-large
@@ -391,12 +394,10 @@
 
     &.horz
     {
-
         width: rem(750);
 
         @include bp-medium
         {
-
             width: rem(635);
 
             text-align: left;
@@ -409,12 +410,14 @@
         }
         .rect,
         .sq,
-        .sqsm {
-            
+        .sqsm
+        {
             margin: rem(0) rem(0) rem(40) rem(0);
+
             @include bp-medium
             {
-                float:left;
+                float: left;
+
                 margin: rem(0) rem(20) rem(20) rem(0);
             }
             @include bp-large
@@ -521,7 +524,7 @@
             width: rem(200);
         }
     }
-    
+
     .title
     {
         font-family: $post-title-font;
@@ -530,13 +533,13 @@
 
         @include bp-medium
         {
-            font-size: rem(36);
-            line-height: rem(42);
+            font-size: rem(33);
+            line-height: rem(39);
         }
         @include bp-large
         {
-            font-size: rem(36);
-            line-height: rem(42);
+            font-size: rem(28);
+            line-height: rem(33);
         }
     }
     .excerpt
@@ -546,13 +549,13 @@
 
         @include bp-medium
         {
-            font-size: rem(13);
-            line-height: rem(22);
+            font-size: rem(18);
+            line-height: rem(30);
         }
         @include bp-large
         {
-            font-size: rem(14);
-            line-height: rem(28);
+            font-size: rem(18);
+            line-height: rem(30);
         }
     }
 }
@@ -610,141 +613,151 @@
 
         opacity: 1;
     }
-
-    figure
+    .holder
     {
         display: flex;
         flex-direction: column;
 
         align-items: center;
-        img
+        justify-content: center;
+        figure
         {
-            width: 90vw;
-            height: auto;
+            display: flex;
+            flex-direction: column;
 
-            @include bp-medium
+            align-items: center;
+            img
             {
-                width: auto;
-                height: 70vh;
-            }
-            @include bp-large
-            {
-                height: 80vh;
-            }
-        }
-        .vid
-        {
-            width: rem(700);
-            height: rem(393.75);
-
-            text-align: center;
-            vertical-align: middle;
-
-            @include bp-medium
-            {
-                width: rem(1000);
-                height: rem(562.5);
-            }
-            @include bp-large
-            {
-                width: rem(1000);
-                height: rem(562.5);
-            }
-            video
-            {
-                outline: none;
-            }
-        }
-        figcaption
-        {
-            margin: rem(20);
-            color:#fff;
-
-            text-align: center;
-
-            @include bp-medium
-            {
-                margin: rem(20) 0 rem(20) 0;
-            }
-            @include bp-large
-            {
-                margin: rem(20) 0 rem(20) 0;
-            }
-            .title
-            {
-                font-family: $headline-font;
-                font-size: rem(50);
-                line-height: rem(60);
-
-                margin: 0 0 rem(20) 0;
+                width: 90vw;
+                height: auto;
 
                 @include bp-medium
                 {
-                    font-size: rem(36);
-                    line-height: rem(44);
-
-                    margin: 0 0 rem(20) 0;
+                    width: auto;
+                    height: 70vh;
                 }
                 @include bp-large
                 {
-                    font-size: rem(36);
-                    line-height: rem(44);
-
-                    margin: rem(20)  0 rem(5) 0;
+                    height: 80vh;
                 }
+            }
+            .vid
+            {
+                width: rem(700);
+                height: rem(393.75);
+
+                text-align: center;
+                vertical-align: middle;
+
+                @include bp-medium
+                {
+                    width: rem(1000);
+                    height: rem(562.5);
+                }
+                @include bp-large
+                {
+                    width: rem(1000);
+                    height: rem(562.5);
+                }
+                video
+                {
+                    outline: none;
+                }
+            }
+            figcaption
+            {
+                margin: rem(20);
+
+                text-align: center;
+
+                color: #fff;
+
+                @include bp-medium
+                {
+                    margin: rem(20);
+                }
+                @include bp-large
+                {
+                    margin: rem(20);
+                }
+                .title
+                {
+                    font-family: $headline-font;
+                    font-size: rem(50);
+                    line-height: rem(60);
+
+                    margin: 0 0 rem(20) 0;
+
+                    @include bp-medium
+                    {
+                        font-size: rem(36);
+                        line-height: rem(44);
+
+                        margin: 0 0 rem(20) 0;
+                    }
+                    @include bp-large
+                    {
+                        font-size: rem(36);
+                        line-height: rem(44);
+
+                        margin: rem(20)  0 rem(5) 0;
+                    }
+                }
+            }
+        }
+
+        .section-title,
+        .date
+        {
+            color: $color-light;
+        }
+        .page-content
+        {
+            color: $color-light;
+            background-color: $color-dark;
+            p
+            {
+                color: $color-light;
+            }
+            a:link,
+            a:visited,
+            a:active
+            {
+                text-decoration: underline;
+                font-weight: bold;
+                color: $color-light;
+            }
+            a:hover
+            {
+                text-decoration: none;
+                font-weight: bold;
+                color: $color-roll;
+            }
+        }
+        .date
+        {
+            text-align: center;
+        }
+
+
+        .post-img-tall
+        {
+            height: 80vh;
+
+            @include bp-medium
+            {
+            }
+            @include bp-large
+            {
+            }
+            img
+            {
+                width: auto;
+                height: 100%;
             }
         }
     }
 
-    .section-title,
-    .date
-    {
-        color: $color-light;
-    }
-    .page-content
-    {
-        color: $color-light;
-        background-color: $color-dark;
-        p
-        {
-            color: $color-light;
-        }
-       
-    }
-    .date
-    {
-        text-align: center;
-    }
-    .post-img
-    {
-
-
-    }
-
-    .post-img-tall
-    {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-
-        height: 90vh;
-
-        transform: translate(-50%, -50%);
-        text-align: center;
-        vertical-align: middle;
-
-        @include bp-medium
-        {
-        }
-        @include bp-large
-        {
-        }
-        img
-        {
-            width: auto;
-            height: 100%;
-        }
-    }
     .ui
     {
         font-size: rem(50);

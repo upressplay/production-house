@@ -6,10 +6,7 @@
     display: flex;
     flex-direction: row;
 
-    padding: rem(50) rem(50);
-
-    color: $color-dark;
-    background-color: $color-light;
+    padding: rem(0) rem(50) rem(50);
 
     flex-flow: wrap;
     @include bp-medium
@@ -17,14 +14,14 @@
         font-size: rem(18);
         line-height: rem(24);
 
-        padding: rem(50) rem(100);
+        padding: rem(0) rem(100) rem(50);
     }
     @include bp-large
     {
         font-size: rem(18);
         line-height: rem(28);
 
-        padding: rem(50) rem(100);
+        padding: rem(0) rem(100) rem(50);
     }
     section
     {
@@ -218,8 +215,6 @@
 
             margin: 0 0 rem(20) 0;
 
-            color: $color-accent;
-
             flex-wrap: nowrap;
             @include bp-medium
             {
@@ -295,7 +290,6 @@
         }
         h3
         {
-            font-family: $post-title-font;
             font-size: rem(48);
             line-height: rem(60);
 

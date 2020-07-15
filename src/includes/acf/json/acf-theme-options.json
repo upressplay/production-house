@@ -132,7 +132,7 @@
                         "label": "Font Link",
                         "name": "font_link",
                         "type": "textarea",
-                        "instructions": "Example: <  link href=\"https:\/\/fonts.googleapis.com\/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap\" rel=\"stylesheet\" >",
+                        "instructions": "A font link only has to be added once, and you can use the font family for the rest of the settings. \r\nExample: <  link href=\"https:\/\/fonts.googleapis.com\/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap\" rel=\"stylesheet\" >",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
@@ -502,6 +502,105 @@
                 ]
             },
             {
+                "key": "field_5f0e9ca9ea608",
+                "label": "Thumbnail Text Font",
+                "name": "thumbnail_txt_font",
+                "type": "group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "sub_fields": [
+                    {
+                        "key": "field_5f0e9cf5ea609",
+                        "label": "Font Link",
+                        "name": "font_link",
+                        "type": "textarea",
+                        "instructions": "Example: < link href=\"https:\/\/fonts.googleapis.com\/css2?family=Assistant&display=swap\" rel=\"stylesheet\" >",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "<link href=\"https:\/\/fonts.googleapis.com\/css2?family=Assistant&display=swap\" rel=\"stylesheet\">",
+                        "placeholder": "",
+                        "maxlength": "",
+                        "rows": "",
+                        "new_lines": ""
+                    },
+                    {
+                        "key": "field_5f0e9d58ea60a",
+                        "label": "Font Family",
+                        "name": "font_family",
+                        "type": "text",
+                        "instructions": "Example: font-family: 'Assistant', sans-serif;",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "font-family: 'Assistant', sans-serif;",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5f0e9eec099c1",
+                        "label": "Font Weight",
+                        "name": "font_weight",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "200": "200",
+                            "300": "300",
+                            "400": "400",
+                            "600": "600",
+                            "700": "700",
+                            "800": "800"
+                        },
+                        "default_value": 400,
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "return_format": "value",
+                        "ajax": 0,
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_5f0e9d67ea60b",
+                        "label": "Color",
+                        "name": "color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "#000"
+                    }
+                ]
+            },
+            {
                 "key": "field_5ee06a7b11cb5",
                 "label": "Body Font",
                 "name": "body_font",
@@ -695,7 +794,7 @@
                 "label": "Default Header",
                 "name": "default_header",
                 "type": "group",
-                "instructions": "Adding an image here will add an image to any post or page that doesn't have a featured image.",
+                "instructions": "Adding an image here will add an image to any Post or Page that doesn't have a Featured Image.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -757,8 +856,8 @@
             },
             {
                 "key": "field_5efbe723a5aa0",
-                "label": "Category Headers",
-                "name": "category_headers",
+                "label": "Category Settings",
+                "name": "category_settings",
                 "type": "repeater",
                 "instructions": "You can add a custom header to any Category page.  If left blank it will pick up on the Default Header above.",
                 "required": 0,
@@ -836,13 +935,109 @@
                             "id": ""
                         },
                         "taxonomy": "category",
-                        "field_type": "checkbox",
+                        "field_type": "radio",
+                        "allow_null": 0,
                         "add_term": 1,
                         "save_terms": 0,
                         "load_terms": 0,
                         "return_format": "id",
-                        "multiple": 0,
-                        "allow_null": 0
+                        "multiple": 0
+                    },
+                    {
+                        "key": "field_5f0e84ee765d4",
+                        "label": "Thumb Style",
+                        "name": "thumb_style",
+                        "type": "group",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5f0e8517765d5",
+                                "label": "Thumb Size",
+                                "name": "thumb_size",
+                                "type": "radio",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "sq": "Square",
+                                    "sqsm": "Small Square",
+                                    "rect": "Rectangle",
+                                    "tall": "Tall"
+                                },
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "default_value": "rect",
+                                "layout": "vertical",
+                                "return_format": "value",
+                                "save_other_choice": 0
+                            },
+                            {
+                                "key": "field_5f0e85875d37e",
+                                "label": "Elements",
+                                "name": "thumb_elements",
+                                "type": "checkbox",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "link": "Link",
+                                    "img": "Image",
+                                    "title": "Title",
+                                    "date": "Date",
+                                    "body": "Body",
+                                    "summary": "Summary"
+                                },
+                                "allow_custom": 0,
+                                "default_value": "link",
+                                "layout": "vertical",
+                                "toggle": 0,
+                                "return_format": "value",
+                                "save_custom": 0
+                            },
+                            {
+                                "key": "field_5f0e85d45d37f",
+                                "label": "Layout",
+                                "name": "thumb_layout",
+                                "type": "radio",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "vert": "Vertical",
+                                    "sm": "Vertical Small",
+                                    "horz": "Horizontal"
+                                },
+                                "allow_null": 0,
+                                "other_choice": 0,
+                                "default_value": "horz",
+                                "layout": "vertical",
+                                "return_format": "value",
+                                "save_other_choice": 0
+                            }
+                        ]
                     }
                 ]
             }

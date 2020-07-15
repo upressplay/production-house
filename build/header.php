@@ -41,6 +41,10 @@
 			if($navFont['font_link'] != "") {
 				echo $navFont['font_link'];
 			}
+			$thumbTxtFont = get_field('thumbnail_txt_font', 'option');
+			if($thumbTxtFont['font_link'] != "") {
+				echo $thumbTxtFont['font_link'];
+			}
 			global $footer;
 			$footer = get_field('footer', 'option');
 			if($footer['font_link'] != "") {
@@ -50,15 +54,17 @@
 			$defaultHeader = get_field('default_header', 'option')['image']['sizes']['header'];
 			global $defaultMobileHeader;
 			$defaultMobileHeader = get_field('default_header', 'option')['mobile_image']['sizes']['header'];
-
-			$categoryHeaders = get_field('category_headers', 'option');
+			global $categorySettings;
+			$categorySettings = get_field('category_settings', 'option');
 			global $cat;
 			$cat = get_the_category();
 			global $cat_name;
 			$cat_name = $cat[0]->name;
 
-			foreach ($categoryHeaders as &$header) {
-				if($cat[0]->term_id == $header['category'][0]) {
+			foreach ($categorySettings as &$header) {
+				$term_id = $cat[0]->term_id;
+				$headerCat = $header['category'];
+				if($term_id == $headerCat) {
 					$defaultHeader = $header['image']['sizes']['header'];	
 					$defaultMobileHeader = $header['mobile_image']['sizes']['header-mobile'];	
 				}
@@ -108,7 +114,8 @@
 				color:<?php echo $headlineFont['roll_color']; ?>;
 				background-color:<?php echo $headlineFont['color']; ?>;
 			}
-			.thumb .title
+			.thumb .title,
+			#resume section h3
 			{
 				<?php echo $subFont['font_family']; ?>;
 				font-weight: <?php echo $subFont['font_weight'] ?>;
@@ -118,6 +125,14 @@
 			{
 				<?php echo $subFont['font_family']; ?>;
 				font-weight: <?php echo $subFont['font_weight'] ?>;
+			}
+
+			.thumb .excerpt,
+			.thumb .date
+			{
+				<?php echo $thumbTxtFont['font_family']; ?>;
+				font-weight: <?php echo $thumbTxtFont['font_weight'] ?>;
+				color: <?php echo $thumbTxtFont['color']; ?>;
 			}
 			nav 
 			{

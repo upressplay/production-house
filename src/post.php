@@ -25,56 +25,47 @@
 		$page_poster = get_field('page_poster');
 		$thumb = $page_poster['sizes']['tall'];
 	}
-
+	$post_type = get_post_type( $post->ID  );
 ?>
 
 <?php if($show_link) : ?>
 	<?php if($urlOverride) : ?>
-		<a href="<?php echo $urlOverride['url']; ?>" target="<?php echo $urlOverride['target']; ?>" class="post" >	
+		<a href="<?php echo $urlOverride['url']; ?>" target="<?php echo $urlOverride['target']; ?>" class="post-override" >	
 	<?php else: ?>
-		<a href="<?php echo $link; ?>" data-postid="<?php echo $post->ID; ?>" class="<?php echo $cat; ?> post" >	
+		<a href="<?php echo $link; ?>" data-postid="<?php echo $post->ID; ?>" class="<?php echo $cat; ?> <?php echo $post_type; ?>" >	
 	<?php endif; ?>
 <?php endif; ?>
 
 
 
 <div class="thumb <?php echo $thumb_layout;?>" >
-<?php if($show_img) : ?>
-	<div class="<?php echo $thumb_size;?> img-loader" data-img="<?php echo $thumb; ?>" data-title="<?php echo $title;?>"></div>
-<?php endif; ?>
 
-<?php if($show_title) : ?>
+	<?php if($show_img) : ?>
+		<div class="<?php echo $thumb_size;?> img-loader" data-img="<?php echo $thumb; ?>" data-title="<?php echo $title;?>"></div>
+	<?php endif; ?>
+
+	<?php if($show_title) : ?>
 		<h3 class="title"><?php echo $title; ?>	</h3>
 	<?php endif; ?>
+
 	<?php if($show_date) : ?>
 		<p class="date"><?php echo $date;?></p>	
 	<?php endif; ?>
-	<?php if($show_title) : ?>
-		
-	<?php endif;?>
+
 	<?php if($show_body) : ?>
 		<p class="excerpt"><?php echo $body; ?></p>	
 	<?php endif; ?>
+
 	<?php if($show_summary) : ?>
 		<p class="excerpt"><?php echo $summary;?></p>
 	<?php endif; ?>
-<?php if($show_title || $show_date || $show_body || $show_summary) : ?>
-	
-	<?php endif; ?>
 
-</div><!-- pageThumb -->
+</div><!-- thumb -->
 <?php if($show_link) : ?>
 	</a>	
 <?php endif; ?>
 <div id="post-<?php echo $post->ID;?>" class="post-content" data-img="<?php echo $img[0];?>" data-img-w="<?php echo $img[1];?>" data-img-h="<?php echo $img[2]; ?>" data-header="<?php echo $headerImg[0]; ?>" data-hires="<?php echo $hires[0];?>" data-vidid="<?php echo $vidid;?>" data-vimeoid="<?php echo $vimeoid; ?>" data-vidfile="<?php echo $vidFile; ?>" data-playlist="<?php echo $playlist;?>" data-cat="<?php echo $cat;?>">
 	
-	
-	<?php if($cat == "news" || $cat == "writing" || $cat == "blog") :?>
-		<div class="post-header-img"></div>
-		<div class="section-title"><?php echo $title;?></div>
-		<div class="date"><?php echo $date;?></div>	
-		<div class="page-content"><?php echo $body; ?></div>
-	<?php endif; ?>
 
 	<?php if($cat == "gallery" || $cat == "photography") :?>
 		<div class="holder">
@@ -85,9 +76,7 @@
 				</figcaption>
 			</figure>
 		</div>
-	<?php endif; ?>
-
-	<?php if($cat == "videos") :?>
+	<?php elseif($cat == "videos") :?>
 		<div class="holder">
 		<figure>
 				<figcaption>
@@ -96,7 +85,15 @@
 				</figcaption>
 			</figure>
 		</div>
+	<?php else: ?>
+		<div class="holder">
+			<div class="post-header-img"></div>
+			<div class="section-title"><?php echo $title;?></div>
+			<div class="date"><?php echo $date;?></div>	
+			<div class="page-content"><?php the_content(); ?></div>
+		</div>
 	<?php endif; ?>
+	
 
 	<div data-id="<?php echo $post->ID; ?>" class="close ui fas fa-times-circle"></div>
 	
