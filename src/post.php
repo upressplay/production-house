@@ -14,6 +14,11 @@
 	$vidFile = get_field('video_file');
 	$urlOverride = get_field('url_override');
 
+	$isVid = false;
+	if($vidid != "" || $playlist != "" || $vimeoid != "" || $vidFile != "") {
+		$isVid = true;
+	}
+
 	$thumb = get_the_post_thumbnail_url( $post->ID, $thumb_size );
 
 	$headerImg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), "header" );
@@ -76,7 +81,7 @@
 				</figcaption>
 			</figure>
 		</div>
-	<?php elseif($cat == "videos") :?>
+	<?php elseif($isVid) :?>
 		<div class="holder">
 		<figure>
 				<figcaption>

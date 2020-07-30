@@ -37,7 +37,7 @@
 ?>
 
 <div class="header-img img-loader" data-img="<?php echo $defaultHeader; ?>" data-img-mobile="<?php echo $defaultMobileHeader; ?>" data-title="<?php echo $cat_name; ?>"></div> 
-<h1 class="section-title headline-font"> <?php echo $cat_name; ?> </h1>	
+<h1 class="section-title"> <?php echo $cat_name; ?> </h1>	
 <div class="category">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php 

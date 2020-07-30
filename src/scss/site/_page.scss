@@ -160,9 +160,6 @@
 
 .page-content
 {
-    font-size: rem(28);
-    line-height: rem(44);
-
     box-sizing: border-box;
     width: 100vw;
     padding: rem(50);
@@ -172,16 +169,10 @@
 
     @include bp-medium
     {
-        font-size: rem(18);
-        line-height: rem(36);
-
         padding: rem(30) rem(100);
     }
     @include bp-large
     {
-        font-size: rem(18);
-        line-height: rem(36);
-
         padding: rem(40) rem(100);
     }
 
@@ -226,15 +217,15 @@
     .vid,
     .gallery
     {
-        width: rem(700);
-        height: rem(393.75);
-        margin: rem(50) auto;
+        width: rem(650);
+        height: rem(365.625);
+        margin: rem(10) auto;
 
         @include bp-medium
         {
             width: rem(1000);
             height: rem(562.5);
-            margin: rem(50) auto;
+            margin: rem(10) auto;
         }
         @include bp-large
         {
@@ -528,13 +519,13 @@
     .title
     {
         font-family: $post-title-font;
-        font-size: rem(48);
+        font-size: rem(55);
         line-height: rem(60);
 
         @include bp-medium
         {
-            font-size: rem(33);
-            line-height: rem(39);
+            font-size: rem(28);
+            line-height: rem(33);
         }
         @include bp-large
         {
@@ -544,19 +535,7 @@
     }
     .excerpt
     {
-        font-size: rem(24);
-        line-height: rem(33);
 
-        @include bp-medium
-        {
-            font-size: rem(18);
-            line-height: rem(30);
-        }
-        @include bp-large
-        {
-            font-size: rem(18);
-            line-height: rem(30);
-        }
     }
 }
 
@@ -666,7 +645,7 @@
             }
             figcaption
             {
-                margin: rem(20);
+                margin: rem(20) rem(25);
 
                 text-align: center;
 
@@ -674,11 +653,11 @@
 
                 @include bp-medium
                 {
-                    margin: rem(20);
+                    margin: rem(20) rem(135);
                 }
                 @include bp-large
                 {
-                    margin: rem(20);
+                    margin: rem(20) rem(300);
                 }
                 .title
                 {
@@ -977,6 +956,8 @@
 
 .post-nav
 {
+
+    clear:both;
     font-size: rem(100);
 
     display: flex;

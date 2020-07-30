@@ -6,6 +6,20 @@ body
     height: 100vh;
     margin: 0;
     padding: 0;
+
+    font-size: rem(36);
+    line-height: rem(52);
+
+    @include bp-medium
+    {
+        font-size: rem(18);
+        line-height: rem(30);
+    }
+    @include bp-large
+    {
+        font-size: rem(18);
+        line-height: rem(30);
+    }
 }
 html
 {
@@ -57,7 +71,8 @@ img
 
 h1,
 h2,
-h3
+h3,
+h4
 {
     font-weight: normal;
 

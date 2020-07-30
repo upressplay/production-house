@@ -22,7 +22,7 @@
             </a>
         <?php endif; ?>
         <?php if($name) : ?> 
-            <h2 class="headline-font">
+            <h2>
                 <?php echo $name; ?> 
             </h2>
         <?php endif; ?>
@@ -46,13 +46,13 @@
 
     <?php if($skills) : ?>
         <section class="resume-card">
-            <h4 class="headline-font">Skills </h4>
+            <h4>Skills </h4>
             <?php echo $skills; ?>
         </section>
     <?php endif; ?>
     <?php if($bio) : ?>
         <section class="resume-card">
-            <h4 class="headline-font">Bio</h4>
+            <h4>Bio</h4>
             <p>
                 <?php echo $bio; ?>
             </p>
@@ -60,7 +60,7 @@
     <?php endif; ?>
     <?php if($experience) : ?> 
         <section class="resume-card">
-            <h4 class="headline-font">Experience </h4>
+            <h4>Experience </h4>
             <?php foreach ( $experience as $e ) : ?>
             <div class="block">
                 <strong><?php echo $e['title']; ?></strong><br/>
@@ -97,7 +97,7 @@
             
             <?php foreach ( $projects as $ps ) : ?>
                  <section class="resume-card">
-                    <h4 class="headline-font"><?php echo $ps['title'];?> </h4>
+                    <h4><?php echo $ps['title'];?> </h4>
                 <?php foreach ( $ps['project']as $p ) : ?>
                     <div class="row">
                         <div class="top">
@@ -123,7 +123,7 @@
     <?php endif; ?>
     <?php if($education) : ?> 
         <section class="resume-card">
-            <h4 class="headline-font">
+            <h4>
                 Education
             </h4>
             <?php foreach ( $education as $ed ) : ?>
@@ -167,7 +167,7 @@
     <?php endif; ?>
     <?php if($accomplishments) : ?> 
         <section class="resume-card">
-            <h4 class="headline-font">
+            <h4>
                 Accomplishments
             </h4>
             <?php foreach ( $accomplishments as $a ) : ?>

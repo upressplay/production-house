@@ -48,7 +48,7 @@
 						<div class="links"> 
 							<?php while( have_rows('page_links') ) :
 								the_row(); ?>
-								<a href="<?php echo get_sub_field('page_link'); ?>" target="_blank" class="headline-font"> 
+								<a href="<?php echo get_sub_field('page_link'); ?>" target="_blank"> 
 								<?php echo get_sub_field('page_link_txt'); ?>
 								</a>
 							<?php endwhile; ?>
