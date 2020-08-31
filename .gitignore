@@ -4,3 +4,4 @@ img
 js
 .DS_Store
 node_modules
+build

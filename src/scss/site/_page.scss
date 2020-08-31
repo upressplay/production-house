@@ -234,6 +234,37 @@
             margin: rem(-30) auto 0;
         }
     }
+    .vid-content
+    {
+        margin: 0 rem(10);
+
+        @include bp-medium
+        {
+            margin: 0 rem(35);
+        }
+        @include bp-large
+        {
+            margin: 0 rem(200);
+        }
+    }
+    iframe {
+        border:0;
+        margin: 0 auto;
+        width: rem(650);
+        height: rem(2200);
+
+        @include bp-medium
+        {
+            width: rem(1070);
+            height: rem(1580);
+        }
+        @include bp-large
+        {
+            margin: 0 rem(300);
+            width: rem(1000);
+            height: rem(760);
+        }
+    }
 }
 
 
@@ -535,7 +566,10 @@
     }
     .excerpt
     {
-
+        &:empty
+        {
+            padding: 0 !important;
+        }
     }
 }
 
@@ -605,6 +639,7 @@
             flex-direction: column;
 
             align-items: center;
+            
             img
             {
                 width: 90vw;
@@ -625,6 +660,8 @@
                 width: rem(700);
                 height: rem(393.75);
 
+                margin: rem(20) 0;
+
                 text-align: center;
                 vertical-align: middle;
 
@@ -632,20 +669,24 @@
                 {
                     width: rem(1000);
                     height: rem(562.5);
+                    margin: rem(20) 0;
                 }
                 @include bp-large
                 {
                     width: rem(1000);
                     height: rem(562.5);
+
+                    margin: rem(20) 0;
                 }
                 video
                 {
                     outline: none;
                 }
             }
+
             figcaption
             {
-                margin: rem(20) rem(25);
+                margin: 0 rem(25) rem(20) rem(25);
 
                 text-align: center;
 
@@ -653,11 +694,11 @@
 
                 @include bp-medium
                 {
-                    margin: rem(20) rem(135);
+                    margin: 0 rem(135) rem(20) rem(135);
                 }
                 @include bp-large
                 {
-                    margin: rem(20) rem(300);
+                    margin: 0 rem(300)  rem(20) rem(300);
                 }
                 .title
                 {
@@ -694,6 +735,17 @@
         {
             color: $color-light;
             background-color: $color-dark;
+            padding: 0 rem(50) rem(50);
+
+            @include bp-medium
+            {
+                padding: 0 rem(100) rem(30) rem(100);
+            }
+            @include bp-large
+            {
+                padding: 0 rem(100) rem(40) rem(100);
+            }
+            
             p
             {
                 color: $color-light;
@@ -702,14 +754,18 @@
             a:visited,
             a:active
             {
-                text-decoration: underline;
                 font-weight: bold;
+
+                text-decoration: underline;
+
                 color: $color-light;
             }
             a:hover
             {
-                text-decoration: none;
                 font-weight: bold;
+
+                text-decoration: none;
+
                 color: $color-roll;
             }
         }
@@ -956,11 +1012,10 @@
 
 .post-nav
 {
-
-    clear:both;
     font-size: rem(100);
 
     display: flex;
+    clear: both;
     flex-direction: row;
 
     text-align: center;

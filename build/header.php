@@ -41,6 +41,8 @@
 			if($navFont['font_link'] != "") {
 				echo $navFont['font_link'];
 			}
+			$navCustomRoll = $navFont['custom_roll'];
+
 			$thumbTxtFont = get_field('thumbnail_txt_font', 'option');
 			if($thumbTxtFont['font_link'] != "") {
 				echo $thumbTxtFont['font_link'];
@@ -95,8 +97,7 @@
 				background-color:<?php echo get_field('nav_menu_btn', 'option')['background_color']; ?>;		
 			}
 			.section-title,
-			.section-title-link,
-			.headline-font
+			.section-title-link
 			{	
 				<?php echo $headlineFont['font_family']; ?>;
 				font-weight: <?php echo $headlineFont['font_weight'] ?>;
@@ -104,7 +105,8 @@
 			}
 
 			figcaption .title,
-			.headline-font
+			#resume section h2,
+			#resume section h4
 			{	
 				<?php echo $headlineFont['font_family']; ?>;
 				font-weight: <?php echo $headlineFont['font_weight'] ?>;
@@ -114,13 +116,19 @@
 				color:<?php echo $headlineFont['roll_color']; ?>;
 				background-color:<?php echo $headlineFont['color']; ?>;
 			}
-			.thumb .title,
-			#resume section h3
+			.thumb .title
 			{
 				<?php echo $subFont['font_family']; ?>;
 				font-weight: <?php echo $subFont['font_weight'] ?>;
 				color: <?php echo $subFont['color']; ?>;
 			}
+
+			#resume section h3
+			{
+				<?php echo $subFont['font_family']; ?>;
+				font-weight: <?php echo $subFont['font_weight'] ?>;
+			}
+
 			.page-content figure figcaption 
 			{
 				<?php echo $subFont['font_family']; ?>;
@@ -209,8 +217,10 @@
 					$url = $menu_item->url;
 					$target = $menu_item->target;
 				    $attr_title = $menu_item->attr_title;
-				    $btn_class = "nav-btn";
-				    if($attr_title == $segments[0]) $btn_class = $btn_class . " active"; ?>
+					$btn_class = "nav-btn";
+					if($attr_title == $segments[0]) $btn_class = $btn_class . " active"; 
+					if($navCustomRoll != 'none') $btn_class = $btn_class . " " . $navCustomRoll;
+					?>
 					<a href="<?php echo $url; ?>" class="<?php echo $btn_class; ?>" target="<?php echo $target; ?>"><?php echo $title; ?></a>
 					
 			<?php endforeach; ?>
@@ -225,9 +235,9 @@
 				    $attr_title = $menu_item->attr_title;
 				    $icon_class = get_field('icon_class', $menu_item);
 					$btn_class = "social-btn";
-					
+					if($navCustomRoll != 'none') $btn_class = $btn_class . " " . $navCustomRoll;
 					?>
-				   	<a href="<?php echo $url; ?>" class="<?php echo $btn_class; ?>" target="_blank" >
+				   	<a href="<?php echo $url; ?>" class="<?php echo $btn_class; ?> <?php echo $navCustomRoll; ?>" target="_blank" >
 						<i class="<?php echo $icon_class; ?>" aria-hidden="true" ></i>
 						<span class="sr-only"><?php echo $title; ?></span>
                     </a>

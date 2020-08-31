@@ -59,6 +59,40 @@
                 "prepend": "",
                 "append": "",
                 "maxlength": ""
+            },
+            {
+                "key": "field_5f095f9077844",
+                "label": "Video File",
+                "name": "video_file",
+                "type": "file",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "url",
+                "library": "all",
+                "min_size": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_5ef438ada2469",
+                "label": "Url Override",
+                "name": "url_override",
+                "type": "link",
+                "instructions": "Adding a link here will override the thumbnail that would normally create an overlay to a news article. This is useful for linking to an external article by another publication.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array"
             }
         ],
         "location": [

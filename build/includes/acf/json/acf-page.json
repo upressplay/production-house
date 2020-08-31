@@ -85,10 +85,10 @@
             },
             {
                 "key": "field_5af5367834381",
-                "label": "Page Gallery",
+                "label": "Page Section",
                 "name": "page_gallery",
                 "type": "repeater",
-                "instructions": "Add a row of content with Title Bar that has an optional link to the main page with all posts for a given Category.",
+                "instructions": "Click Add Row to create an new Page Section. Then Click Add Row to add a Post or Page to the Page Section.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -111,7 +111,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "20",
+                            "width": "15",
                             "class": "",
                             "id": ""
                         },
@@ -122,37 +122,15 @@
                         "maxlength": ""
                     },
                     {
-                        "key": "field_5b00af94f6322",
-                        "label": "Section Url",
-                        "name": "section_page",
-                        "type": "page_link",
-                        "instructions": "Use this to add a page link to the Section Title.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "10",
-                            "class": "",
-                            "id": ""
-                        },
-                        "post_type": [
-                            "page",
-                            "post"
-                        ],
-                        "taxonomy": [],
-                        "allow_null": 0,
-                        "allow_archives": 1,
-                        "multiple": 0
-                    },
-                    {
                         "key": "field_5b00a1e281fcc",
-                        "label": "Page Objects",
+                        "label": "Posts or Pages",
                         "name": "page_objects",
                         "type": "repeater",
                         "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "30",
+                            "width": "50",
                             "class": "",
                             "id": ""
                         },
@@ -164,7 +142,7 @@
                         "sub_fields": [
                             {
                                 "key": "field_5af89dad37bb8",
-                                "label": "Page Object",
+                                "label": "Post or Page",
                                 "name": "page_object",
                                 "type": "post_object",
                                 "instructions": "",
@@ -179,7 +157,7 @@
                                     "post",
                                     "page"
                                 ],
-                                "taxonomy": [],
+                                "taxonomy": "",
                                 "allow_null": 0,
                                 "multiple": 0,
                                 "return_format": "object",
@@ -196,7 +174,7 @@
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "20",
+                            "width": "45",
                             "class": "",
                             "id": ""
                         },
@@ -284,6 +262,30 @@
                         ]
                     }
                 ]
+            },
+            {
+                "key": "field_5efd0c3e8164c",
+                "label": "Page Mobile Header Image",
+                "name": "mobile_header_image",
+                "type": "image",
+                "instructions": "Use this if you want a different image as the header on mobile. This is useful if one of your images works great on desktop but gets cropped too much on mobile. Otherwise leave this blank and just upload the header to the Featured Image field.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
             }
         ],
         "location": [

@@ -86,7 +86,7 @@
 		<figure>
 				<figcaption>
 					<div class="title"><?php echo $title;?></div>
-					<div class="excerpt"><?php echo $summary; ?></div>
+					<div class="page-content"><?php the_content(); ?></div>
 				</figcaption>
 			</figure>
 		</div>
