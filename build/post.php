@@ -72,7 +72,7 @@
 <div id="post-<?php echo $post->ID;?>" class="post-content" data-img="<?php echo $img[0];?>" data-img-w="<?php echo $img[1];?>" data-img-h="<?php echo $img[2]; ?>" data-header="<?php echo $headerImg[0]; ?>" data-hires="<?php echo $hires[0];?>" data-vidid="<?php echo $vidid;?>" data-vimeoid="<?php echo $vimeoid; ?>" data-vidfile="<?php echo $vidFile; ?>" data-playlist="<?php echo $playlist;?>" data-cat="<?php echo $cat;?>">
 	
 
-	<?php if($cat == "gallery" || $cat == "photography") :?>
+	<?php if($cat == "gallery" || $cat == "photography" || $cat == "photos") :?>
 		<div class="holder">
 			<figure>
 				<figcaption>

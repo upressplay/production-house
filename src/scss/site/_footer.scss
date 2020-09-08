@@ -1,11 +1,12 @@
 #footer
 {
+    box-sizing: border-box;
     font-size: rem(18);
     font-weight: 400;
 
     width: 100vw;
     margin-top: rem(20);
-    padding: rem(20) 0;
+    padding: rem(20);
 
     text-align: center;
 
@@ -14,13 +15,13 @@
         font-size: rem(12);
 
         margin-top: rem(20);
-        padding: rem(20) 0;
+        padding: rem(20);
     }
     @include bp-large
     {
         font-size: rem(12);
 
         margin-top: rem(20);
-        padding: rem(20) 0;
+        padding: rem(20);
     }
 }

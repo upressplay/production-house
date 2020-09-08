@@ -777,6 +777,7 @@
 
         .post-img-tall
         {
+            width: auto;
             height: 80vh;
 
             @include bp-medium
