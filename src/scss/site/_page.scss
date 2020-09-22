@@ -250,19 +250,16 @@
     iframe {
         border:0;
         margin: 0 auto;
-        width: rem(650);
+        width: 100%;
         height: rem(2200);
 
         @include bp-medium
         {
-            width: rem(1070);
             height: rem(1580);
         }
         @include bp-large
         {
-            margin: 0 rem(300);
-            width: rem(1000);
-            height: rem(760);
+            height: rem(960);
         }
     }
 }
